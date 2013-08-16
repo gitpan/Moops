@@ -1,0 +1,351 @@
+NAME
+    Moops - Moops Object-Oriented Programming Sugar
+
+SYNOPSIS
+       use Moops;
+   
+       role NamedThing {
+          has name => (is => "ro", isa => Str);
+       }
+   
+       class Person with NamedThing;
+   
+       class Company with NamedThing;
+   
+       class Employee extends Person {
+          has job_title => (is => "rwp", isa => Str);
+          has employer  => (is => "rwp", isa => InstanceOf["Company"]);
+      
+          method change_job ( Object $employer, Str $title ) {
+             $self->_set_job_title($title);
+             $self->_set_employer($employer);
+          }
+      
+          method promote ( Str $title ) {
+             $self->_set_job_title($title);
+          }
+       }
+
+STATUS
+    Experimental.
+
+    I'll have more confidence in it once the test suite is complete.
+
+DESCRIPTION
+    Moops is sugar for declaring and using roles and classes in Perl.
+
+    The syntax is inspired by MooseX::Declare, and Stevan Little's
+    p5-mop-redux project (which is in turn partly inspired by Perl 6).
+
+    Moops has roughly only 40% as many dependencies as MooseX::Declare, loads
+    in about 25% of the time, and runs significantly faster. Moops does not
+    use Devel::Declare, instead using Perl's pluggable keyword API; this
+    requires Perl 5.14 or above.
+
+    Moops uses Moo to build classes and roles by default, but allows you to
+    use Moose if you desire. (And Mouse experimentally.)
+
+  Classes
+    The `class` keyword declares a class:
+
+            class Foo {
+                    # ...
+            }
+
+    A version number can optionally be provided:
+
+            class Foo 1.2 {
+                    # ...
+            }
+
+    If your class extends an existing class through inheritance, or consumes
+    one or more roles, these can also be provided when declaring the class.
+
+            class Foo::Bar 1.2 extends Foo with Magic::Monkeys {
+                    # ...
+            }
+
+    If you use Moops within a package other than `main`, then package names
+    used within the declaration are "qualified" by that outer package, unless
+    they contain "::". So for example:
+
+            package Quux;
+            use Moops;
+        
+            class Foo { }       # declares Quux::Foo
+        
+            class Xyzzy::Foo    # declares Xyzzy::Foo
+                    extends Foo { }  # ... extending Quux::Foo
+        
+            class ::Baz { }     # declares Baz
+
+    If you wish to use Moose or Mouse instead of Moo; include that in the
+    declaration:
+
+            class Foo using Moose {
+                    # ...
+            }
+
+    (The `using` option is exempt from the package qualification rules
+    mentioned earlier.)
+
+    Note that it is possible to declare a class with an empty body; use a
+    trailing semicolon.
+
+            class Employee extends Person with Employment;
+
+    If using Moose or Mouse, classes are automatically made immutable. If
+    using Moo, the MooX::late extension is enabled.
+
+    namespace::sweep is automatically used in all classes.
+
+  Roles
+    Roles can be declared similarly to classes, but using the `role` keyword.
+
+            role Stringable
+                    using Moose     # we know you meant Moose::Role
+            {
+                    # ...
+            }
+
+    Roles do not support the `extends` option.
+
+    Roles can be declared to be `using Role::Tiny`.
+
+    If roles use Moo, the MooX::late extension is enabled.
+
+    namespace::sweep is automatically used in all roles.
+
+  Namespaces
+    The `namespace` keyword works as above, but declares a package without any
+    class-specific or role-specific semantics.
+
+            namespace Utils {
+                    # ...
+            }
+
+    namespace::sweep is not automatically used in namespaces.
+
+  Functions and Methods
+    Moops uses Function::Parameters to declare functions and methods within
+    classes and roles, which is perhaps not as featureful as
+    Method::Signatures, but it does the job.
+
+            class Person {
+                    use Scalar::Util 'refaddr';
+                
+                    has name => (is => 'rwp');    # Moo attribute
+                
+                    method change_name ( Str $newname ) {
+                            $self->_set_name( $newname )
+                                    unless $newname eq 'Princess Consuela Banana-Hammock';
+                    }
+                
+                    fun is_same_as ( Object $x, Object $y ) {
+                            refaddr($x) == refaddr($y)
+                    }
+            }
+        
+            my $phoebe = Person->new(name => 'Phoebe');
+            my $ursula = Person->new(name => 'Ursula');
+        
+            Person::is_same_as($phoebe, $ursula);   # false
+
+    Note function signatures use type constraints from Types::Standard;
+    MooseX::Types and MouseX::Types type constraints should also work,
+    *provided you use their full names, including their package*.
+
+    The `is_same_as` function above could have been written as a class method
+    like this:
+
+            class Person {
+                    # ...
+                    method is_same_as ( $class: Object $x, Object $y ) {
+                            refaddr($x) == refaddr($y)
+                    }
+            }
+        
+            # ...
+            Person->is_same_as($phoebe, $ursula);   # false
+
+    The `method` keyword is not provided within packages declared using
+    `namespace`; it is only available within classes and roles.
+
+  Method Modifiers
+    Within classes and roles, `before`, `after` and `around` keywords are
+    provided for declaring method modifiers. These use the same syntax as
+    `method`.
+
+    Unlike Moo/Mouse/Moose, for `around` modifiers, the coderef being wrapped
+    is *not* passed as $_[0]. Instead, it's available in the global variable
+    `${^NEXT}`.
+
+  Type Constraints
+    The Types::Standard type constraints are exported to each package declared
+    using Moops. This allows the standard type constraints to be used as
+    barewords.
+
+    If using type constraints from other type constraint libraries, they
+    should generally be usable by package-qualifying them:
+
+            use MooseX::Types::Numeric qw();
+        
+            method foo ( MooseX::Types::Numeric::SingleDigit $d ) {
+                    # ...
+            }
+
+    Alternatively:
+
+            use MooseX::Types::Numeric qw(SingleDigit);
+        
+            method foo ( (SingleDigit) $d ) {
+                    # ...
+            }
+
+    Note the parentheses around the type constraint in the method signature;
+    this is required for Function::Parameters to realise that `SingleDigit` is
+    an imported symbol, and not a string to be looked up.
+
+  Constants
+    The useful constants `true` and `false` are imported into all declared
+    packages. (Within classes and roles, namespace::sweep will later remove
+    them from the symbol table, so they don't form part of your package's
+    API.) These constants can help make attribute declarations more readable.
+
+            has name => (is => 'ro', isa => Str, required => true);
+
+    Further constants can be declared using the `define` keyword:
+
+            namespace Maths {
+                    define PI = 3.2;
+            }
+
+    Constants declared this way will *not* be swept away by namespace::sweep,
+    and are considered part of your package's API.
+
+  More Sugar
+    Strictures, including fatal warnings, but excluding the `uninitialized`,
+    `void`, `once` and `numeric` warning categories is imported into all
+    declared packages.
+
+    Perl 5.14 features, including the `state` and `say` keywords, and sane
+    Unicode string handling are imported into all declared packages.
+
+    Try::Tiny is imported into all declared packages.
+
+    Scalar::Util's `blessed` and Carp's `confess` are imported into all
+    declared packages.
+
+  Outer Sugar
+    The "outer" package, where the `use Moops` statement appears also gets a
+    little sugar: strictures, the same warnings as "inner" packages, and Perl
+    5.14 features are all switched on.
+
+    true is loaded, so you don't need to do this at the end of your file:
+
+            1;
+
+  Custom Sugar
+    It is possible to inject other functions into all inner packages using:
+
+            use Moops [
+                    'List::Util'      => [qw( first reduce )],
+                    'List::MoreUtils' => [qw( any all none )],
+            ];
+
+    This is by far the easiest way to extend Moops with project-specific
+    extras.
+
+EXTENDING
+    Moops is written to hopefully be fairly extensible.
+
+  The Easy Way
+    The easiest way to extend Moops is to inject additional imports into the
+    inner packages using the technique outlined in "Custom Sugar" above. You
+    can wrap all that up in a module:
+
+            package MoopsX::Lists;
+            use Moops ();
+            use List::Util ();
+            use List::MoreUtils ();
+            sub import {
+                    push @{ $_[1] ||= [] }, (
+                            'List::Util'      => [qw( first reduce )],
+                            'List::MoreUtils' => [qw( any all none )],
+                    );
+                    goto \&Moops::import;
+            }
+            1;
+
+    Now people can do `use MoopsX::Lists` instead of `use Moops`.
+
+  The Hard Way
+    For more complex needs, you should create a subclass of Moops, and
+    override the `class_for_parser` method to inject your own custom keyword
+    parser, which should be a subclass of Moops::Parser.
+
+    The parser subclass might want to override:
+
+    *   The `keywords` class method, which returns the list of keywords the
+        parser can handle.
+
+    *   The `relationships` object method, which returns a list of valid
+        inter-package relationships such as `extends` and `using` for the
+        current keyword (`$self->keyword`).
+
+    *   The `module_name_should_be_qualified` object method, which, when given
+        an inter-package relationship, indicates whether it should be
+        subjected to package qualification.
+
+    *   The `class_for_code_generator` object method, which returns the name
+        of a subclass of Moops::CodeGenerator which will be used for
+        translating the result of parsing the keyword into a string using
+        Perl's built-in syntax.
+
+    Hopefully you'll be able to avoid overriding the `parse` method itself, as
+    it has a slightly messy API.
+
+    Your code generator subclass can either be a direct subclass of
+    Moops::CodeGenerator, or of Moops::CodeGenerator::Class or
+    Moops::CodeGenerator::Role.
+
+    The code generator subclass might want to override:
+
+    *   The `generate_package_setup` object method which returns a list of
+        strings to inject into the package.
+
+    *   The `arguments_for_function_parameters` object method which is used by
+        the default `generate_package_setup` method to set up the arguments to
+        be passed to Function::Parameters.
+
+    Hopefully you'll be able to avoid overriding the `generate` method.
+
+BUGS
+    Please report any bugs to
+    <http://rt.cpan.org/Dist/Display.html?Queue=Moops>.
+
+SEE ALSO
+    Similar: MooseX::Declare, <https://github.com/stevan/p5-mop-redux>.
+
+    Main functionality exposed by this module: Moo/MooX::late,
+    Function::Parameters, Try::Tiny, Types::Standard, namespace::sweep, true.
+
+    Internals fueled by: Keyword::Simple, Module::Runtime, Import::Into,
+    Devel::Pragma, Attribute::Handlers.
+
+    <http://en.wikipedia.org/wiki/The_Bubble_Boy_(Seinfeld)>.
+
+AUTHOR
+    Toby Inkster <tobyink@cpan.org>.
+
+COPYRIGHT AND LICENCE
+    This software is copyright (c) 2013 by Toby Inkster.
+
+    This is free software; you can redistribute it and/or modify it under the
+    same terms as the Perl 5 programming language system itself.
+
+DISCLAIMER OF WARRANTIES
+    THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+    MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+

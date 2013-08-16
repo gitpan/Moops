@@ -1,0 +1,49 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.70.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 294505f858f11dd062e9916e3f50d88210a9ef54 CONTRIBUTING
+SHA1 99f35b9c560a106b4611d463b0eb4beb1d80bd02 COPYRIGHT
+SHA1 6bd7b17d81be63d08d4efa6cb80106e72887842c CREDITS
+SHA1 dc1970a10c0c210ee54fa8b832d34dfab9ac3a0f Changes
+SHA1 ec5a7b4f3023f03ebf821b57690758f7e6f3ae2a LICENSE
+SHA1 38254119d3164ff0149ea523c1de290e6981bc56 MANIFEST
+SHA1 cc5d986c6c1d2b7e20820aa867c54884ae392249 META.json
+SHA1 69844110ea571fb8449419b6d424a3dc1e229f1e META.ttl
+SHA1 c840fce62940b395d6b76d86bf9992d90c01e408 META.yml
+SHA1 73c52d5ae8e39b7ea6850b939ec275fda3e957c9 Makefile.PL
+SHA1 8d77ec4cc730d05ca4db8cbf7e5baebd291928e6 README
+SHA1 a1de9e1386567b9f2d16b830fac353cf8b0ce888 dist.ini
+SHA1 c07975f31afe536cde9d582d2fc5737e83db234c examples/bench.pl
+SHA1 f93ec33dbded76078df892fe8a76bcf277fce309 examples/calculator.pl
+SHA1 22cc8eb78d0538777407b67a6260a8f4af6a9cf5 lib/Moops.pm
+SHA1 bb4cb70b25e4c93a4a0aae66dad5d05c9caea3e1 lib/Moops/CodeGenerator.pm
+SHA1 8ce102639383b42541a7e3517535952e56e7cdcb lib/Moops/CodeGenerator/Class.pm
+SHA1 c639ffe5f95e75fe6ed168580a1f635a16b70ff6 lib/Moops/CodeGenerator/Role.pm
+SHA1 795ab4c6757c9bbe4c2ab2fd36c7628d4d6c4ee0 lib/Moops/DefineKeyword.pm
+SHA1 807832c47c6759cef1927ffa09ffbb0f169cff84 lib/Moops/ImportSet.pm
+SHA1 4c2a298184633615fde2be70fa3906a14868b2fa lib/Moops/MethodModifiers.pm
+SHA1 939b07e67c783dc0af942d9d095d603ebb74b739 lib/Moops/Parser.pm
+SHA1 5af507b486e6d77ac379cfba14c2019b5e3856b6 t/01basic.t
+SHA1 9e29781162448b55e3e1da6c38526c57ec4ff3ff t/10class.t
+SHA1 c9ed8dd379b4a48f218ef6e8806ec3905a30564a t/11class-moose.t
+SHA1 a12c66ebedd83309d129efa4820dabbae3c87e9d t/12class-mouse.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iEYEARECAAYFAlIOnJ4ACgkQzr+BKGoqfTmPugCgnD1r9HNhk0L64AC00uOMeqLz
++WQAnj20invM9QNpvIuWsAIIowkFDtDb
+=YvVG
+-----END PGP SIGNATURE-----
