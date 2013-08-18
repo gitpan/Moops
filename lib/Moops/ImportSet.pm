@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::ImportSet;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.007';
+our $VERSION   = '0.008';
 
 use Moo;
 use Module::Runtime qw(use_package_optimistically);
@@ -28,6 +28,7 @@ sub do_imports {
 	
 	my $imports = $SAVED{$ident};
 	
+	require Import::Into;
 	for my $import (@$imports)
 	{
 		my ($module, $params) = @$import;

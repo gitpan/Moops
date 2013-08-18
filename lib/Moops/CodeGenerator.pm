@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::CodeGenerator;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.007';
+our $VERSION   = '0.008';
 
 use Moo;
 use B qw(perlstring);
@@ -40,7 +40,7 @@ sub generate
 	$inject .= join qq[\n], $self->generate_package_setup;
 	
 	# Additional imports
-	$inject .= $self->imports->generate_code if $self->has_imports;
+	$inject .= $self->imports->generate_code($package) if $self->has_imports;
 	
 	# Stuff that must happen at runtime rather than compile time
 	$inject .= "'Moops'->at_runtime('$package');";
@@ -65,10 +65,10 @@ sub generate_package_setup
 		'use Scalar::Util qw(blessed);',
 		'use Try::Tiny;',
 		'use Types::Standard qw(-types);',
-		'use constant { true => !!1, false => !!0 };',
 		'use v5.14;',
 		'use strict;',
 		'use warnings FATAL => qw(all); no warnings qw(void once uninitialized numeric);',
+		'BEGIN { (*true, *false) = (\&Moops::_true, \&Moops::_false) };',
 	);
 }
 

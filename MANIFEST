@@ -10,9 +10,14 @@ META.yml
 Makefile.PL
 README
 SIGNATURE
+TODO
 dist.ini
 examples/bench.pl
 examples/calculator.pl
+examples/extending-moops.pl
+examples/lib/MoopsX/Ception.pm
+examples/lib/MoopsX/Ception/CodeGenerator/Exception.pm
+examples/lib/MoopsX/Ception/Parser.pm
 lib/Moops.pm
 lib/Moops/CodeGenerator.pm
 lib/Moops/CodeGenerator/Class.pm

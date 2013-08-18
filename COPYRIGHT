@@ -5,6 +5,7 @@ Source: https://metacpan.org/release/Moops
 
 Files: README
  examples/bench.pl
+ examples/extending-moops.pl
  lib/Moops.pm
  t/01basic.t
  t/11class-moose.t
@@ -42,7 +43,11 @@ License: GPL-1.0+ or Artistic-1.0
 
 Files: CONTRIBUTING
  LICENSE
+ TODO
  examples/calculator.pl
+ examples/lib/MoopsX/Ception.pm
+ examples/lib/MoopsX/Ception/CodeGenerator/Exception.pm
+ examples/lib/MoopsX/Ception/Parser.pm
 Copyright: Unknown
 License: Unknown
 

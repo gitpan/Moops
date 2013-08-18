@@ -26,28 +26,28 @@ no_index:
 provides:
   Moops:
     file: lib/Moops.pm
-    version: 0.007
+    version: 0.008
   Moops::CodeGenerator:
     file: lib/Moops/CodeGenerator.pm
-    version: 0.007
+    version: 0.008
   Moops::CodeGenerator::Class:
     file: lib/Moops/CodeGenerator/Class.pm
-    version: 0.007
+    version: 0.008
   Moops::CodeGenerator::Role:
     file: lib/Moops/CodeGenerator/Role.pm
-    version: 0.007
+    version: 0.008
   Moops::DefineKeyword:
     file: lib/Moops/DefineKeyword.pm
-    version: 0.007
+    version: 0.008
   Moops::ImportSet:
     file: lib/Moops/ImportSet.pm
-    version: 0.007
+    version: 0.008
   Moops::MethodModifiers:
     file: lib/Moops/MethodModifiers.pm
-    version: 0.007
+    version: 0.008
   Moops::Parser:
     file: lib/Moops/Parser.pm
-    version: 0.007
+    version: 0.008
 requires:
   Devel::Pragma: 0.54
   Exporter::TypeTiny: 0.022
@@ -61,6 +61,7 @@ requires:
   Try::Tiny: 0.12
   Type::Utils: 0.022
   namespace::sweep: 0.006
+  perl: 5.014
   true: 0.18
 resources:
   X_identifier: http://purl.org/NET/cpan-uri/dist/Moops/project
@@ -68,5 +69,5 @@ resources:
   homepage: https://metacpan.org/release/Moops
   license: http://dev.perl.org/licenses/
   repository: https://github.com/tobyink/p5-moops
-version: 0.007
+version: 0.008
 x_provides_scripts: {}
