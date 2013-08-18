@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Parser;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.006';
+our $VERSION   = '0.007';
 
 use Moo;
 use Module::Runtime qw($module_name_rx);
@@ -129,7 +129,7 @@ sub parse
 	
 	$self->_set_relations(
 		$self->_eat_relations
-	);
+	) if $self->relationships;
 	
 	$self->_eat_space;
 	
