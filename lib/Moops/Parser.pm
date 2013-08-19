@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Parser;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.009';
+our $VERSION   = '0.010';
 
 use Moo;
 use Module::Runtime qw($module_name_rx);
@@ -20,8 +20,18 @@ has 'ref'        => (is => 'ro');
 has 'package'    => (is => 'rwp', init_arg => undef);
 has 'version'    => (is => 'rwp', init_arg => undef, predicate => 'has_version');
 has 'relations'  => (is => 'rwp', init_arg => undef, default => sub { +{} });
+has 'traits'     => (is => 'rwp', init_arg => undef, default => sub { +{} });
 has 'is_empty'   => (is => 'rwp', init_arg => undef, default => sub { 0 });
 has 'done'       => (is => 'rwp', init_arg => undef, default => sub { 0 });
+
+has 'class_for_keyword' => (
+	is      => 'lazy',
+	builder => 1,
+	handles => {
+		known_relationships  => 'known_relationships',
+		qualify_relationship => 'qualify_relationship',
+	},
+);
 
 sub _eat
 {
@@ -83,7 +93,7 @@ sub _eat_relations
 {
 	my $self = shift;
 	
-	my $RELS = join '|', map quotemeta, $self->relationships;
+	my $RELS = join '|', map quotemeta, $self->known_relationships;
 	$RELS = qr/\A($RELS)/sm;
 	
 	my %relationships;
@@ -108,6 +118,41 @@ sub _eat_relations
 	return \%relationships
 }
 
+sub _eat_traits
+{
+	my $self = shift;
+	
+	my %traits;
+	while ($self->_peek(qr/[A-Za-z]\w+/))
+	{
+		my $trait = $self->_eat(qr/[A-Za-z]\w+/);
+		$self->_eat_space;
+		
+		if ($self->_peek(qr/\(/))
+		{
+			require Text::Balanced;
+			my $code = Text::Balanced::extract_codeblock(${$self->ref}, '()');
+			my $ccstash = $self->ccstash;
+			# stolen from Attribute::Handlers
+			my $evaled = eval("package $ccstash; no warnings; no strict; local \$SIG{__WARN__}=sub{die}; +{ $code }");
+			$traits{$trait} = $evaled;
+			$self->_eat_space;
+		}
+		else
+		{
+			$traits{$trait} = undef;
+		}
+		
+		if ($self->_peek(qr/:/))
+		{
+			$self->_eat(':');
+			$self->_eat_space;
+		}
+	}
+	
+	\%traits;
+}
+
 sub parse
 {
 	my $self = shift;
@@ -116,7 +161,7 @@ sub parse
 	$self->_eat_space;
 	
 	$self->_set_package(
-		$self->_eat_package('package')
+		$self->_eat_package
 	);
 	
 	$self->_eat_space;
@@ -129,11 +174,19 @@ sub parse
 	
 	$self->_set_relations(
 		$self->_eat_relations
-	) if $self->relationships;
+	) if $self->known_relationships;
 	
 	$self->_eat_space;
 	
-	$self->_peek(qr/\A;/) ? $self->_set_is_empty(1) : $self->_eat('{');
+	if ($self->_peek(qr/:/))
+	{
+		$self->_eat(':');
+		$self->_eat_space;
+		$self->_set_traits($self->_eat_traits);
+		$self->_eat_space;
+	}
+	
+	$self->_peek(qr/;/) ? $self->_set_is_empty(1) : $self->_eat('{');
 	
 	$self->_set_done(1);
 }
@@ -141,21 +194,6 @@ sub parse
 sub keywords
 {
 	qw/ class role namespace /;
-}
-
-sub relationships
-{
-	my $self = shift;
-	my $kw   = $self->keyword;
-	return qw(with using)          if $kw eq q(role);
-	return qw(with extends using)  if $kw eq q(class);
-	return qw();
-}
-
-sub module_name_should_be_qualified
-{
-	shift;
-	return 1 if $_[0] =~ /^(package|with|extends)$/;
 }
 
 sub qualify_module_name
@@ -167,42 +205,61 @@ sub qualify_module_name
 	return $1                    if $bareword =~ /^::(.+)$/;
 	return $bareword             if $caller eq 'main';
 	return $bareword             if $bareword =~ /::/;
-	return "$caller\::$bareword" if $self->module_name_should_be_qualified($rel);
+	return "$caller\::$bareword" if !defined($rel) || $self->qualify_relationship($rel);
 	return $bareword;
 }
 
-sub class_for_code_generator
+sub _build_class_for_keyword
 {
 	my $self = shift;
 	my $kw = $self->keyword;
 	
-	if ($kw eq 'class') {
-		require Moops::CodeGenerator::Class;
-		return 'Moops::CodeGenerator::Class';
+	if ($kw eq 'class')
+	{
+		require Moops::Keyword::Class;
+		return 'Moops::Keyword::Class';
 	}
-	elsif ($kw eq 'role') {
-		require Moops::CodeGenerator::Role;
-		return 'Moops::CodeGenerator::Role';
+	elsif ($kw eq 'role')
+	{
+		require Moops::Keyword::Role;
+		return 'Moops::Keyword::Role';
 	}
-	else {
-		require Moops::CodeGenerator;
-		return 'Moops::CodeGenerator';
-	}
+	
+	require Moops::Keyword;
+	return 'Moops::Keyword';
 }
 
-sub code_generator
+sub keyword_object
 {
 	my $self = shift;
-	my ($imports) = @_;
+	my (%attrs) = @_;
 	
-	$self->class_for_code_generator->new(
+	my $class = $self->class_for_keyword;
+	
+	if (my %traits = %{$self->traits || {}})
+	{
+		require Moo::Role;
+		$class = 'Moo::Role'->create_class_with_roles(
+			$self->class_for_keyword,
+			map("Moops::TraitFor::Keyword::$_", keys %traits),
+		);
+		
+		for my $trait (keys %traits)
+		{
+			next unless defined $traits{$trait};
+			$attrs{sprintf('%s_%s', lc($trait), $_)} = $traits{$trait}{$_}
+				for keys %{$traits{$trait}};
+		}
+	}
+	
+	$class->new(
 		package   => $self->package,
 		(version  => $self->version) x!!($self->has_version),
 		relations => $self->relations,
 		is_empty  => $self->is_empty,
 		keyword   => $self->keyword,
 		ccstash   => $self->ccstash,
-		(imports  => $imports) x!!(defined $imports),
+		%attrs,
 	);
 }
 

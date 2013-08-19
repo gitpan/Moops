@@ -6,6 +6,13 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.010	2013-08-19
+
+ - (Addition) Parse Attribute::Handlers-style attributes attached to
+   package declarations; treat these as traits for the code generator.
+ - (Change) Much refactoring.
+ - (Change) Rename Moops::CodeGenerator -> Moops::Keyword.
+
 0.009	2013-08-19
 
  - (Bugfix) Fix at-runtime hook (used for method modifiers).

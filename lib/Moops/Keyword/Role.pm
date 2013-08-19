@@ -3,14 +3,14 @@ use strict;
 use warnings FATAL => 'all';
 no warnings qw(void once uninitialized numeric);
 
-package Moops::CodeGenerator::Role;
+package Moops::Keyword::Role;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.009';
+our $VERSION   = '0.010';
 
 use Moo;
 use B qw(perlstring);
-extends qw( Moops::CodeGenerator );
+extends qw( Moops::Keyword );
 
 around arguments_for_function_parameters => sub
 {
@@ -97,5 +97,19 @@ sub generate_package_setup_relationships
 	return unless @roles;
 	return sprintf "with(%s);", join ",", map perlstring($_), @roles;
 }
+
+around known_relationships => sub
+{
+	my $next = shift;
+	my $self = shift;
+	return($self->$next(@_), qw/ with using /);
+};
+
+around qualify_relationship => sub
+{
+	my $next = shift;
+	my $self = shift;
+	$_[0] eq 'using' ? !!0 : $self->$next(@_);
+};
 
 1;

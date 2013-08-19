@@ -44,14 +44,14 @@ my $meta = {
                             },
                           },
   "provides"           => {
-                            "Moops"                       => { file => "lib/Moops.pm", version => 0.009 },
-                            "Moops::CodeGenerator"        => { file => "lib/Moops/CodeGenerator.pm", version => 0.009 },
-                            "Moops::CodeGenerator::Class" => { file => "lib/Moops/CodeGenerator/Class.pm", version => 0.009 },
-                            "Moops::CodeGenerator::Role"  => { file => "lib/Moops/CodeGenerator/Role.pm", version => 0.009 },
-                            "Moops::DefineKeyword"        => { file => "lib/Moops/DefineKeyword.pm", version => 0.009 },
-                            "Moops::ImportSet"            => { file => "lib/Moops/ImportSet.pm", version => 0.009 },
-                            "Moops::MethodModifiers"      => { file => "lib/Moops/MethodModifiers.pm", version => 0.009 },
-                            "Moops::Parser"               => { file => "lib/Moops/Parser.pm", version => 0.009 },
+                            "Moops"                  => { file => "lib/Moops.pm", version => "0.010" },
+                            "Moops::DefineKeyword"   => { file => "lib/Moops/DefineKeyword.pm", version => "0.010" },
+                            "Moops::ImportSet"       => { file => "lib/Moops/ImportSet.pm", version => "0.010" },
+                            "Moops::Keyword"         => { file => "lib/Moops/Keyword.pm", version => "0.010" },
+                            "Moops::Keyword::Class"  => { file => "lib/Moops/Keyword/Class.pm", version => "0.010" },
+                            "Moops::Keyword::Role"   => { file => "lib/Moops/Keyword/Role.pm", version => "0.010" },
+                            "Moops::MethodModifiers" => { file => "lib/Moops/MethodModifiers.pm", version => "0.010" },
+                            "Moops::Parser"          => { file => "lib/Moops/Parser.pm", version => "0.010" },
                           },
   "release_status"     => "stable",
   "resources"          => {
@@ -61,7 +61,7 @@ my $meta = {
                             repository   => { type => "git", web => "https://github.com/tobyink/p5-moops" },
                             X_identifier => "http://purl.org/NET/cpan-uri/dist/Moops/project",
                           },
-  "version"            => 0.009,
+  "version"            => "0.010",
   "x_provides_scripts" => {},
 };
 

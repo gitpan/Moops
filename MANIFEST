@@ -16,14 +16,14 @@ examples/bench.pl
 examples/calculator.pl
 examples/extending-moops.pl
 examples/lib/MoopsX/Ception.pm
-examples/lib/MoopsX/Ception/CodeGenerator/Exception.pm
+examples/lib/MoopsX/Ception/Keyword/Exception.pm
 examples/lib/MoopsX/Ception/Parser.pm
 lib/Moops.pm
-lib/Moops/CodeGenerator.pm
-lib/Moops/CodeGenerator/Class.pm
-lib/Moops/CodeGenerator/Role.pm
 lib/Moops/DefineKeyword.pm
 lib/Moops/ImportSet.pm
+lib/Moops/Keyword.pm
+lib/Moops/Keyword/Class.pm
+lib/Moops/Keyword/Role.pm
 lib/Moops/MethodModifiers.pm
 lib/Moops/Parser.pm
 t/01basic.t
@@ -46,3 +46,4 @@ t/31types.t
 t/41constants.t
 t/51moresugar.t
 t/52customsugar.t
+t/91traits.t

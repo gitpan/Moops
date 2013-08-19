@@ -296,27 +296,27 @@ EXTENDING
     *   The `keywords` class method, which returns the list of keywords the
         parser can handle.
 
-    *   The `relationships` object method, which returns a list of valid
-        inter-package relationships such as `extends` and `using` for the
-        current keyword (`$self->keyword`).
-
-    *   The `module_name_should_be_qualified` object method, which, when given
-        an inter-package relationship, indicates whether it should be
-        subjected to package qualification.
-
-    *   The `class_for_code_generator` object method, which returns the name
-        of a subclass of Moops::CodeGenerator which will be used for
-        translating the result of parsing the keyword into a string using
-        Perl's built-in syntax.
+    *   The `class_for_keyword` object method, which returns the name of a
+        subclass of Moops::Keyword which will be used for translating the
+        result of parsing the keyword into a string using Perl's built-in
+        syntax.
 
     Hopefully you'll be able to avoid overriding the `parse` method itself, as
     it has a slightly messy API.
 
-    Your code generator subclass can either be a direct subclass of
-    Moops::CodeGenerator, or of Moops::CodeGenerator::Class or
-    Moops::CodeGenerator::Role.
+    Your `class_for_keyword` subclass can either be a direct subclass of
+    Moops::Keyword, or of Moops::Keyword::Class or Moops::Keyword::Role.
 
-    The code generator subclass might want to override:
+    The keyword subclass might want to override:
+
+    *   The `known_relationships` class method, which returns a list of valid
+        inter-package relationships such as `extends` and `using` for the
+        current keyword.
+
+    *   The `qualify_relationship` object method, which, when given the name
+        of an inter-package relationship, indicates whether it should be
+        subjected to package qualification rules (like `extends` and `with`
+        are, but `using` is not).
 
     *   The `generate_package_setup` object method which returns a list of
         strings to inject into the package.
@@ -325,7 +325,7 @@ EXTENDING
         the default `generate_package_setup` method to set up the arguments to
         be passed to Function::Parameters.
 
-    Hopefully you'll be able to avoid overriding the `generate` method.
+    Hopefully you'll be able to avoid overriding the `generate_code` method.
 
 BUGS
     Please report any bugs to

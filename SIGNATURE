@@ -15,32 +15,32 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 294505f858f11dd062e9916e3f50d88210a9ef54 CONTRIBUTING
-SHA1 59403a2b2d2227d5a72707eb8b65aa08ad06cae8 COPYRIGHT
+SHA1 b27f230ac3d381c2b0953eb0a7bf32e76d05aff6 COPYRIGHT
 SHA1 6bd7b17d81be63d08d4efa6cb80106e72887842c CREDITS
-SHA1 0815ce7118a82bb2ccbf7eb52bfa5d5fc5d2e3e4 Changes
+SHA1 f703b4eb3f7cd971f7d9e03b47a5e92a67bd9d6e Changes
 SHA1 ec5a7b4f3023f03ebf821b57690758f7e6f3ae2a LICENSE
-SHA1 b91448bb7fc2fbace4c0b7b3908b0eb3249e1ef5 MANIFEST
-SHA1 e20563bc6707a8d1892a7bfacf93d12d0a56062b META.json
-SHA1 1b886d48c6e803d1573356d70b16845e0c1ac1e6 META.ttl
-SHA1 38909fb328b6848b698bdf163e042f20fdc8b605 META.yml
-SHA1 edef42c8fc8410f02f1f4d23da4dc4dafdff445b Makefile.PL
-SHA1 307d1bb55143cd9daa97a7a9e5f08e2072f3519c README
-SHA1 a0aaa66f34e55c8f3bdf5bf7719322a6b7aee914 TODO
+SHA1 4def777273f42ad34847c897d78e54b86d1332df MANIFEST
+SHA1 4eb1976a0f6f071563474e74232219719feb705d META.json
+SHA1 561f4fcb288c04e09602e368a54ca7bffb20a20e META.ttl
+SHA1 4fd1b72461455689c2cab0f08da5c9c19c112170 META.yml
+SHA1 977aa7f0d9056dcefc3537143fc0fed7794de443 Makefile.PL
+SHA1 5b99145ed9068d570441da662994239d48617301 README
+SHA1 defb058aa08cfb435e5a191895ecdfeabd1e614d TODO
 SHA1 a1de9e1386567b9f2d16b830fac353cf8b0ce888 dist.ini
 SHA1 c07975f31afe536cde9d582d2fc5737e83db234c examples/bench.pl
 SHA1 f93ec33dbded76078df892fe8a76bcf277fce309 examples/calculator.pl
-SHA1 897381efa0597931756483c1ba9c3b964253ed2e examples/extending-moops.pl
+SHA1 dea759122884269a343c0d194ef857d9b8dfec9a examples/extending-moops.pl
 SHA1 9f2b664cfad9d0534980db4e4bf1da44d0ca09fb examples/lib/MoopsX/Ception.pm
-SHA1 43c4287510b2875a9a7323520af45a980f30c148 examples/lib/MoopsX/Ception/CodeGenerator/Exception.pm
-SHA1 9893aee4269bff98d0d5caae0fb0a21629ea15b5 examples/lib/MoopsX/Ception/Parser.pm
-SHA1 aa02bbee80e48e3c4b6d6a9f00f233ad06a01db8 lib/Moops.pm
-SHA1 e5665c6c1e528e42205db9dcf42b72df6e6cb82c lib/Moops/CodeGenerator.pm
-SHA1 5a33f592ea6f456bc4c43e7b04f79270704bee07 lib/Moops/CodeGenerator/Class.pm
-SHA1 a9deb982afca34752317ad63442d0f346fc1f6ae lib/Moops/CodeGenerator/Role.pm
-SHA1 331ba78fe68dc9a95e76b86ed5da177b1f4aedf8 lib/Moops/DefineKeyword.pm
-SHA1 b6b5b30007374ddafdd533c2a5ac9c0163e9763d lib/Moops/ImportSet.pm
-SHA1 6856f5d0ab2cf1e42ffc9d1d73a4fe99f37a0ebc lib/Moops/MethodModifiers.pm
-SHA1 036ff7b22bea678e8766921b075c31792e6418a2 lib/Moops/Parser.pm
+SHA1 10e6e891e0ef9ee4a483a484e2448c493fd3b364 examples/lib/MoopsX/Ception/Keyword/Exception.pm
+SHA1 a44c3e33c3489e652701387707ac34d947f6b40a examples/lib/MoopsX/Ception/Parser.pm
+SHA1 fff99d8e3de9851cd880141286ea2cb372ee3903 lib/Moops.pm
+SHA1 5388b148a0ae721c38ed424ea07b76092d032117 lib/Moops/DefineKeyword.pm
+SHA1 871f2c8f52ac61bb9cdd654300f93e616f1c5518 lib/Moops/ImportSet.pm
+SHA1 778647eae52af02099e8c09db8306ff3144f9c54 lib/Moops/Keyword.pm
+SHA1 85cdfadb555909255010c0944224567e626eed2c lib/Moops/Keyword/Class.pm
+SHA1 8e803ca20f9289c426c77f18e0acec702f176bbb lib/Moops/Keyword/Role.pm
+SHA1 c9fd4f42222675a16d9cbb1415333a2e918896ff lib/Moops/MethodModifiers.pm
+SHA1 101f99749d46d2b46478dd8b7f4aa99d45ca2c2e lib/Moops/Parser.pm
 SHA1 5af507b486e6d77ac379cfba14c2019b5e3856b6 t/01basic.t
 SHA1 133ffea60085db58af120bf13e62f86a3bd5755a t/11class-moose.t
 SHA1 fda615dbd72bf9c98e0e9fe042b3010b4e7bea26 t/11class-mouse.t
@@ -61,10 +61,11 @@ SHA1 1ba195c2b5813e08177e74fc8d0260e9e0c6bae7 t/31types.t
 SHA1 c46ae739fa452d4ca9ba9da7d82f1ff16595b17b t/41constants.t
 SHA1 79000d7f7053c7b95ec18fb3daab14c14c8a7521 t/51moresugar.t
 SHA1 545a9b276247ee0cbd5831d43df1ae8d3d8a692a t/52customsugar.t
+SHA1 b423055aae50572d0f2f6095b61ad6232aa75548 t/91traits.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.12 (GNU/Linux)
 
-iEYEARECAAYFAlISNzIACgkQzr+BKGoqfTmkPwCgnLLDhTlBfABKMKnSzpaBCXfz
-oIwAoKB7XXJt+jdzcOJffTaP7P6FxmMC
-=vfEs
+iEYEARECAAYFAlISjL8ACgkQzr+BKGoqfTnG8gCgq3br4e/85fh+hgjOH2qJ4zxV
+xnwAmwR3EiZqvw67+HlSIigKyAPUuJZN
+=/Gd/
 -----END PGP SIGNATURE-----

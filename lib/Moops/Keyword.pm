@@ -3,10 +3,10 @@ use strict;
 use warnings FATAL => 'all';
 no warnings qw(void once uninitialized numeric);
 
-package Moops::CodeGenerator;
+package Moops::Keyword;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.009';
+our $VERSION   = '0.010';
 
 use Moo;
 use B qw(perlstring);
@@ -21,7 +21,7 @@ has 'relations'  => (is => 'ro');
 has 'is_empty'   => (is => 'ro');
 has 'imports'    => (is => 'ro', predicate => 'has_imports');
 
-sub generate
+sub generate_code
 {
 	my $self = shift;
 	my $class = ref $self;
@@ -92,6 +92,16 @@ sub arguments_for_function_parameters
 			reify_type           => $reify,
 		},
 	};
+}
+
+sub known_relationships
+{
+	return;
+}
+
+sub qualify_relationship
+{
+	return 1;
 }
 
 1;

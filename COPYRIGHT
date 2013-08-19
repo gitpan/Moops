@@ -27,6 +27,7 @@ Files: README
  t/41constants.t
  t/51moresugar.t
  t/52customsugar.t
+ t/91traits.t
 Copyright: This software is copyright (c) 2013 by Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
@@ -36,11 +37,11 @@ Files: Changes
  META.yml
  Makefile.PL
  dist.ini
- lib/Moops/CodeGenerator.pm
- lib/Moops/CodeGenerator/Class.pm
- lib/Moops/CodeGenerator/Role.pm
  lib/Moops/DefineKeyword.pm
  lib/Moops/ImportSet.pm
+ lib/Moops/Keyword.pm
+ lib/Moops/Keyword/Class.pm
+ lib/Moops/Keyword/Role.pm
  lib/Moops/MethodModifiers.pm
  lib/Moops/Parser.pm
 Copyright: Copyright 2013 Toby Inkster.
@@ -51,7 +52,7 @@ Files: CONTRIBUTING
  TODO
  examples/calculator.pl
  examples/lib/MoopsX/Ception.pm
- examples/lib/MoopsX/Ception/CodeGenerator/Exception.pm
+ examples/lib/MoopsX/Ception/Keyword/Exception.pm
  examples/lib/MoopsX/Ception/Parser.pm
 Copyright: Unknown
 License: Unknown
