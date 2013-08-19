@@ -40,17 +40,18 @@ my $meta = {
                             test => {
                               recommends => { Moose => "2.0600", Mouse => "1.00" },
                               requires   => { "Test::Fatal" => 0, "Test::More" => 0.96, "Test::Requires" => 0 },
+                              suggests   => { "MooseX::Types::Common::Numeric" => 0 },
                             },
                           },
   "provides"           => {
-                            "Moops"                       => { file => "lib/Moops.pm", version => 0.008 },
-                            "Moops::CodeGenerator"        => { file => "lib/Moops/CodeGenerator.pm", version => 0.008 },
-                            "Moops::CodeGenerator::Class" => { file => "lib/Moops/CodeGenerator/Class.pm", version => 0.008 },
-                            "Moops::CodeGenerator::Role"  => { file => "lib/Moops/CodeGenerator/Role.pm", version => 0.008 },
-                            "Moops::DefineKeyword"        => { file => "lib/Moops/DefineKeyword.pm", version => 0.008 },
-                            "Moops::ImportSet"            => { file => "lib/Moops/ImportSet.pm", version => 0.008 },
-                            "Moops::MethodModifiers"      => { file => "lib/Moops/MethodModifiers.pm", version => 0.008 },
-                            "Moops::Parser"               => { file => "lib/Moops/Parser.pm", version => 0.008 },
+                            "Moops"                       => { file => "lib/Moops.pm", version => 0.009 },
+                            "Moops::CodeGenerator"        => { file => "lib/Moops/CodeGenerator.pm", version => 0.009 },
+                            "Moops::CodeGenerator::Class" => { file => "lib/Moops/CodeGenerator/Class.pm", version => 0.009 },
+                            "Moops::CodeGenerator::Role"  => { file => "lib/Moops/CodeGenerator/Role.pm", version => 0.009 },
+                            "Moops::DefineKeyword"        => { file => "lib/Moops/DefineKeyword.pm", version => 0.009 },
+                            "Moops::ImportSet"            => { file => "lib/Moops/ImportSet.pm", version => 0.009 },
+                            "Moops::MethodModifiers"      => { file => "lib/Moops/MethodModifiers.pm", version => 0.009 },
+                            "Moops::Parser"               => { file => "lib/Moops/Parser.pm", version => 0.009 },
                           },
   "release_status"     => "stable",
   "resources"          => {
@@ -60,7 +61,7 @@ my $meta = {
                             repository   => { type => "git", web => "https://github.com/tobyink/p5-moops" },
                             X_identifier => "http://purl.org/NET/cpan-uri/dist/Moops/project",
                           },
-  "version"            => 0.008,
+  "version"            => 0.009,
   "x_provides_scripts" => {},
 };
 

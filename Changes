@@ -6,6 +6,11 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.009	2013-08-19
+
+ - (Bugfix) Fix at-runtime hook (used for method modifiers).
+ - (Packaging) The test suite is now in a reasonable state.
+
 0.008	2013-08-18
 
  - (Bugfix) Fix custom imports feature.

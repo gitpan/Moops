@@ -28,6 +28,9 @@
 	doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
 	doap-deps:test-recommendation [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ], [ doap-deps:on "Test::Requires"^^doap-deps:CpanId ], [ doap-deps:on "Test::Fatal"^^doap-deps:CpanId ];
+	doap-deps:test-suggestion [
+		doap-deps:on "MooseX::Types::Common::Numeric"^^doap-deps:CpanId;
+	];
 	doap:bug-database    <http://rt.cpan.org/Dist/Display.html?Queue=Moops>;
 	doap:created         "2013-06-30"^^xsd:date;
 	doap:developer       <http://purl.org/NET/cpan-uri/person/tobyink>;
@@ -37,7 +40,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Moops";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-moops>;
@@ -225,6 +228,23 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.008.tar.gz>;
 	doap:revision        "0.008"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>
+	a                    doap:Version;
+	dc:identifier        "Moops-0.009"^^xsd:string;
+	dc:issued            "2013-08-19"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Packaging;
+			rdfs:label "The test suite is now in a reasonable state.";
+		], [
+			a doap-changeset:Bugfix;
+			rdfs:label "Fix at-runtime hook (used for method modifiers).";
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.009.tar.gz>;
+	doap:revision        "0.009"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;

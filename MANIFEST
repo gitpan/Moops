@@ -37,6 +37,11 @@ t/13namespace.t
 t/21fun.t
 t/22method.t
 t/23modifiers.t
+t/31types-moose.t
+t/31types-moosextypes-imported.t
+t/31types-moosextypes-moo.t
+t/31types-moosextypes.t
+t/31types-mouse.t
 t/31types.t
 t/41constants.t
 t/51moresugar.t
