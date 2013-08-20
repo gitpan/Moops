@@ -39,6 +39,7 @@
             "Module::Runtime" : "0.013",
             "Moo" : "1.003000",
             "MooX::late" : "0.014",
+            "MooseX::MungeHas" : "0.002",
             "Scalar::Util" : "1.24",
             "Try::Tiny" : "0.12",
             "Type::Utils" : "0.022",
@@ -49,6 +50,7 @@
          "suggests" : {
             "MooX::HandlesVia" : 0,
             "Moose" : "2.0600",
+            "MooseX::XSAccessor" : 0,
             "Mouse" : "1.00"
          }
       },
@@ -68,37 +70,61 @@
       }
    },
    "provides" : {
+      "Class::Tiny::Antlers" : {
+         "file" : "lib/Class/Tiny/Antlers.pm",
+         "version" : "0.011"
+      },
       "Moops" : {
          "file" : "lib/Moops.pm",
-         "version" : "0.010"
+         "version" : "0.011"
       },
       "Moops::DefineKeyword" : {
          "file" : "lib/Moops/DefineKeyword.pm",
-         "version" : "0.010"
+         "version" : "0.011"
       },
       "Moops::ImportSet" : {
          "file" : "lib/Moops/ImportSet.pm",
-         "version" : "0.010"
+         "version" : "0.011"
       },
       "Moops::Keyword" : {
          "file" : "lib/Moops/Keyword.pm",
-         "version" : "0.010"
+         "version" : "0.011"
       },
       "Moops::Keyword::Class" : {
          "file" : "lib/Moops/Keyword/Class.pm",
-         "version" : "0.010"
+         "version" : "0.011"
       },
       "Moops::Keyword::Role" : {
          "file" : "lib/Moops/Keyword/Role.pm",
-         "version" : "0.010"
+         "version" : "0.011"
       },
       "Moops::MethodModifiers" : {
          "file" : "lib/Moops/MethodModifiers.pm",
-         "version" : "0.010"
+         "version" : "0.011"
       },
       "Moops::Parser" : {
          "file" : "lib/Moops/Parser.pm",
-         "version" : "0.010"
+         "version" : "0.011"
+      },
+      "Moops::TraitFor::Keyword::dirty" : {
+         "file" : "lib/Moops/TraitFor/Keyword/dirty.pm",
+         "version" : "0.011"
+      },
+      "Moops::TraitFor::Keyword::mutable" : {
+         "file" : "lib/Moops/TraitFor/Keyword/mutable.pm",
+         "version" : "0.011"
+      },
+      "Moops::TraitFor::Keyword::ro" : {
+         "file" : "lib/Moops/TraitFor/Keyword/ro.pm",
+         "version" : "0.011"
+      },
+      "Moops::TraitFor::Keyword::rw" : {
+         "file" : "lib/Moops/TraitFor/Keyword/rw.pm",
+         "version" : "0.011"
+      },
+      "Moops::TraitFor::Keyword::rwp" : {
+         "file" : "lib/Moops/TraitFor/Keyword/rwp.pm",
+         "version" : "0.011"
       }
    },
    "release_status" : "stable",
@@ -116,6 +142,6 @@
          "web" : "https://github.com/tobyink/p5-moops"
       }
    },
-   "version" : "0.010",
+   "version" : "0.011",
    "x_provides_scripts" : {}
 }

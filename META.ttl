@@ -14,7 +14,7 @@
 	dc:contributor       <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap-deps:runtime-requirement [ doap-deps:on "Devel::Pragma 0.54"^^doap-deps:CpanId ], [
 		doap-deps:on "Exporter::TypeTiny 0.022"^^doap-deps:CpanId;
-	], [ doap-deps:on "Try::Tiny 0.12"^^doap-deps:CpanId ], [
+	], [ doap-deps:on "Type::Utils 0.022"^^doap-deps:CpanId ], [ doap-deps:on "Try::Tiny 0.12"^^doap-deps:CpanId ], [
 		doap-deps:on "namespace::sweep 0.006"^^doap-deps:CpanId;
 	], [ doap-deps:on "true 0.18"^^doap-deps:CpanId ], [ doap-deps:on "perl 5.014"^^doap-deps:CpanId ], [
 		doap-deps:on "Function::Parameters 1.0201"^^doap-deps:CpanId;
@@ -24,8 +24,10 @@
 		doap-deps:on "Keyword::Simple 0.01"^^doap-deps:CpanId;
 	], [
 		doap-deps:on "Module::Runtime 0.013"^^doap-deps:CpanId;
-	], [ doap-deps:on "Moo 1.003000"^^doap-deps:CpanId ], [ doap-deps:on "MooX::late 0.014"^^doap-deps:CpanId ], [ doap-deps:on "Scalar::Util 1.24"^^doap-deps:CpanId ], [ doap-deps:on "Type::Utils 0.022"^^doap-deps:CpanId ];
-	doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
+	], [ doap-deps:on "Moo 1.003000"^^doap-deps:CpanId ], [ doap-deps:on "MooX::late 0.014"^^doap-deps:CpanId ], [
+		doap-deps:on "MooseX::MungeHas 0.002"^^doap-deps:CpanId;
+	], [ doap-deps:on "Scalar::Util 1.24"^^doap-deps:CpanId ];
+	doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
 	doap-deps:test-recommendation [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ], [ doap-deps:on "Test::Requires"^^doap-deps:CpanId ], [ doap-deps:on "Test::Fatal"^^doap-deps:CpanId ];
 	doap-deps:test-suggestion [
@@ -40,7 +42,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Moops";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-moops>;
@@ -265,6 +267,47 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.010.tar.gz>;
 	doap:revision        "0.010"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>
+	a                    doap:Version;
+	dc:identifier        "Moops-0.011"^^xsd:string;
+	dc:issued            "2013-08-20"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Addition;
+			rdfs:label "Support classes built `using Class::Tiny`.";
+		], [
+			a doap-changeset:Addition;
+			rdfs:label "Class::Tiny::Antlers";
+		], [
+			a doap-changeset:Documentation;
+			rdfs:label "Document Attribute::Handlers-style attributes as an extensibility mechanism.";
+		], [
+			a doap-changeset:Addition;
+			rdfs:label "Moops::TraitFor::Keyword::dirty";
+		], [
+			a doap-changeset:Addition;
+			rdfs:label "Moops::TraitFor::Keyword::mutable";
+		], [
+			a doap-changeset:Addition;
+			rdfs:label "Moops::TraitFor::Keyword::ro";
+		], [
+			a doap-changeset:Addition;
+			rdfs:label "Moops::TraitFor::Keyword::rw";
+		], [
+			a doap-changeset:Addition;
+			rdfs:label "Moops::TraitFor::Keyword::rwp";
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Moose classes will now `use Moose::XSAccessor` if possible.";
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Use MooseX::MungeHas to 0.002 smooth over more differences between Moo, Mouse and Moose.";
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.011.tar.gz>;
+	doap:revision        "0.011"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;

@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Class;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.010';
+our $VERSION   = '0.011';
 
 use Moo;
 use Devel::GlobalDestruction;
@@ -17,6 +17,7 @@ my %using = (
 	Moo   => 'use Moo; use MooX::late;',
 	Moose => 'use Moose;',
 	Mouse => 'use Mouse;',
+	Tiny  => 'use Class::Tiny; use Class::Tiny::Antlers;',
 );
 
 sub Moops::Keyword::Class::__GUARD__::DESTROY
@@ -34,15 +35,30 @@ sub generate_package_setup_oo
 	exists($using{$using})
 		or Carp::croak("Cannot create a package using $using; stopped");
 	
-	my @guard;
-	push @guard, sprintf('my $__GUARD__%d = bless([__PACKAGE__], "Moops::Keyword::Class::__GUARD__");', 100_000 + int(rand 899_000))
-		if $using eq 'Moose' || $using eq 'Mouse';
+	my @lines = (
+		'use namespace::sweep;',
+		"use MooseX::MungeHas qw(@{[ $self->arguments_for_moosex_mungehas ]});",
+#		'BEGIN { no warnings "redefine"; my $orig = \&has; *has = sub { warn __PACKAGE__." has @_"; goto $orig; } };',
+	);
+
+	if ($using eq 'Moose' or $using eq 'Mouse')
+	{
+		push @lines, sprintf(
+			'my $__GUARD__%d = bless([__PACKAGE__], "Moops::Keyword::Class::__GUARD__");',
+			100_000 + int(rand 899_000),
+		);
+	}
 	
+	if ($using eq 'Moose')
+	{
+		state $has_xs = !!eval('require MooseX::XSAccessor');
+		push @lines, 'use MooseX::XSAccessor;' if $has_xs;
+	}
+
 	return (
 		$using{$using},
 		$self->generate_package_setup_relationships,
-		'use namespace::sweep;',
-		@guard,
+		@lines,
 	);
 }
 

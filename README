@@ -89,6 +89,13 @@ DESCRIPTION
           # ...
        }
 
+    It's also possible to create classes `using Tiny` (Class::Tiny), but
+    there's probably little point in it, because Moops uses Moo internally, so
+    the more capable Moo is already loaded and in memory.
+
+    Moose classes are automatically accelerated using MooseX::XSAccessor if
+    it's installed.
+
     (The `using` option is exempt from the package qualification rules
     mentioned earlier.)
 
@@ -102,6 +109,27 @@ DESCRIPTION
 
     namespace::sweep is automatically used in all classes.
 
+    Between the class declaration and its body, Attribute::Handlers-style
+    attributes may be provided:
+
+       class Person :mutable {
+          # ...
+       }
+   
+       class Employee extends Person with Employment :mutable;
+
+    The following attributes are defined for classes:
+
+    *   `:dirty` - suppresses namespace::sweep
+
+    *   `:mutable` - suppresses making Moose classes immutable
+
+    *   `:ro` - make attributes declared with `has` default to 'ro'
+
+    *   `:rw` - make attributes declared with `has` default to 'rw'
+
+    *   `:rwp` - make attributes declared with `has` default to 'rwp'
+
   Roles
     Roles can be declared similarly to classes, but using the `role` keyword.
 
@@ -113,11 +141,18 @@ DESCRIPTION
 
     Roles do not support the `extends` option.
 
-    Roles can be declared to be `using Role::Tiny`.
+    Roles can be declared to be `using` Moo, Moose, Mouse or Tiny. (Note that
+    if you're mixing and matching role frameworks, there are limitations to
+    which class builders can consume which roles. Mouse is generally the least
+    compatible; Moo and Moose classes should be able to consume each others'
+    roles; Moo can also consume Role::Tiny roles.)
 
     If roles use Moo, the MooX::late extension is enabled.
 
     namespace::sweep is automatically used in all roles.
+
+    Roles take similar Attribute::Handlers-style attributes to classes, but
+    don't support `:mutable`.
 
   Namespaces
     The `namespace` keyword works as above, but declares a package without any
@@ -128,6 +163,10 @@ DESCRIPTION
        }
 
     namespace::sweep is not automatically used in namespaces.
+
+    Attribute::Handlers-style attributes are supported for namespaces, but
+    none of the built-in attributes make any sense without class/role
+    semantics. Traits written as Moops extensions may support namespaces.
 
   Functions and Methods
     Moops uses Function::Parameters to declare functions and methods within
@@ -266,7 +305,7 @@ DESCRIPTION
 EXTENDING
     Moops is written to hopefully be fairly extensible.
 
-  The Easy Way
+  Extending Moops via imports
     The easiest way to extend Moops is to inject additional imports into the
     inner packages using the technique outlined in "Custom Sugar" above. You
     can wrap all that up in a module:
@@ -286,7 +325,7 @@ EXTENDING
 
     Now people can do `use MoopsX::Lists` instead of `use Moops`.
 
-  The Hard Way
+  Extending Moops via subclassing
     For more complex needs, you should create a subclass of Moops, and
     override the `class_for_parser` method to inject your own custom keyword
     parser, which should be a subclass of Moops::Parser.
@@ -326,6 +365,16 @@ EXTENDING
         be passed to Function::Parameters.
 
     Hopefully you'll be able to avoid overriding the `generate_code` method.
+
+  Extending Moops via traits
+    Roles in the `Moops::TraitFor::Keyword` namespace are automatically loaded
+    and applied to keyword objects when a corresponding
+    Attribute::Handlers-style attribute is seen.
+
+    For examples extending Moops this way, see the
+    Moops::TraitFor::Keyword::dirty, Moops::TraitFor::Keyword::mutable,
+    Moops::TraitFor::Keyword::ro, Moops::TraitFor::Keyword::rw and
+    Moops::TraitFor::Keyword::rwp traits.
 
 BUGS
     Please report any bugs to
