@@ -7,6 +7,8 @@ Files: README
  examples/bench.pl
  examples/extending-moops.pl
  lib/Moops.pm
+ lib/PerlX/Assert.pm
+ lib/PerlX/Define.pm
  t/01basic.t
  t/11class-moose.t
  t/11class-mouse.t
@@ -29,6 +31,7 @@ Files: README
  t/41constants.t
  t/51moresugar.t
  t/52customsugar.t
+ t/61assertions.t
  t/91traits.t
  t/92trait-dirty.t
  t/93trait-mutable.t
@@ -43,13 +46,13 @@ Files: Changes
  Makefile.PL
  dist.ini
  lib/Class/Tiny/Antlers.pm
- lib/Moops/DefineKeyword.pm
  lib/Moops/ImportSet.pm
  lib/Moops/Keyword.pm
  lib/Moops/Keyword/Class.pm
  lib/Moops/Keyword/Role.pm
  lib/Moops/MethodModifiers.pm
  lib/Moops/Parser.pm
+ lib/Moops/TraitFor/Keyword/assertions.pm
  lib/Moops/TraitFor/Keyword/dirty.pm
  lib/Moops/TraitFor/Keyword/mutable.pm
  lib/Moops/TraitFor/Keyword/ro.pm
@@ -60,7 +63,6 @@ License: GPL-1.0+ or Artistic-1.0
 
 Files: CONTRIBUTING
  LICENSE
- TODO
  examples/calculator.pl
  examples/lib/MoopsX/Ception.pm
  examples/lib/MoopsX/Ception/Keyword/Exception.pm

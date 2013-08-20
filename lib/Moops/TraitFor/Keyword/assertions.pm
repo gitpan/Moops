@@ -3,17 +3,19 @@ use strict;
 use warnings FATAL => 'all';
 no warnings qw(void once uninitialized numeric);
 
-package Moops::TraitFor::Keyword::rw;
+package Moops::TraitFor::Keyword::assertions;
 
 our $AUTHORITY = 'cpan:TOBYINK';
 our $VERSION   = '0.012';
 
 use Moo::Role;
 
-around arguments_for_moosex_mungehas => sub {
+around generate_package_setup => sub {
 	my $next = shift;
 	my $self = shift;
-	return ('is_rw', $self->$next(@_));
+	return map {
+		s/use PerlX::Assert;/use PerlX::Assert -check;/; $_
+	} $self->$next(@_);
 };
 
 1;

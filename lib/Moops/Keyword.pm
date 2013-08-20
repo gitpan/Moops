@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.011';
+our $VERSION   = '0.012';
 
 use Moo;
 use B qw(perlstring);
@@ -61,7 +61,8 @@ sub generate_package_setup
 	return (
 		'use Carp qw(confess);',
 		"use Function::Parameters '$class'->arguments_for_function_parameters(q[$package]);",
-		'use Moops::DefineKeyword;',
+		'use PerlX::Assert;',
+		'use PerlX::Define;',
 		'use Scalar::Util qw(blessed);',
 		'use Try::Tiny;',
 		'use Types::Standard qw(-types);',

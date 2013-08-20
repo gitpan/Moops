@@ -10,7 +10,6 @@ META.yml
 Makefile.PL
 README
 SIGNATURE
-TODO
 dist.ini
 examples/bench.pl
 examples/calculator.pl
@@ -20,18 +19,20 @@ examples/lib/MoopsX/Ception/Keyword/Exception.pm
 examples/lib/MoopsX/Ception/Parser.pm
 lib/Class/Tiny/Antlers.pm
 lib/Moops.pm
-lib/Moops/DefineKeyword.pm
 lib/Moops/ImportSet.pm
 lib/Moops/Keyword.pm
 lib/Moops/Keyword/Class.pm
 lib/Moops/Keyword/Role.pm
 lib/Moops/MethodModifiers.pm
 lib/Moops/Parser.pm
+lib/Moops/TraitFor/Keyword/assertions.pm
 lib/Moops/TraitFor/Keyword/dirty.pm
 lib/Moops/TraitFor/Keyword/mutable.pm
 lib/Moops/TraitFor/Keyword/ro.pm
 lib/Moops/TraitFor/Keyword/rw.pm
 lib/Moops/TraitFor/Keyword/rwp.pm
+lib/PerlX/Assert.pm
+lib/PerlX/Define.pm
 t/01basic.t
 t/11class-moose.t
 t/11class-mouse.t
@@ -54,6 +55,7 @@ t/31types.t
 t/41constants.t
 t/51moresugar.t
 t/52customsugar.t
+t/61assertions.t
 t/91traits.t
 t/92trait-dirty.t
 t/93trait-mutable.t

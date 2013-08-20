@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.011';
+our $VERSION   = '0.012';
 
 use Devel::Pragma qw(ccstash);
 use Exporter::TypeTiny qw(mkopt);
@@ -129,9 +129,10 @@ Moops - Moops Object-Oriented Programming Sugar
 
 =head1 STATUS
 
-Experimental.
+Unstable.
 
-I'll have more confidence in it once the test suite is complete.
+Until version 1.000, stuff might change, but not without good
+reason.
 
 =head1 DESCRIPTION
 
@@ -140,10 +141,11 @@ Moops is sugar for declaring and using roles and classes in Perl.
 The syntax is inspired by L<MooseX::Declare>, and Stevan Little's
 p5-mop-redux project (which is in turn partly inspired by Perl 6).
 
-Moops has roughly only 40% as many dependencies as MooseX::Declare,
-loads in about 25% of the time, and runs significantly faster.
-Moops does not use Devel::Declare, instead using Perl's pluggable
-keyword API; this requires Perl 5.14 or above.
+Moops has fewer than half of the dependencies as MooseX::Declare,
+loads in about 25% of the time, and the classes built with it run
+significantly faster. Moops does not use Devel::Declare, instead
+using Perl's pluggable keyword API; I<< this requires Perl 5.14
+or above >>.
 
 Moops uses L<Moo> to build classes and roles by default, but allows
 you to use L<Moose> if you desire. (And L<Mouse> experimentally.)
@@ -198,19 +200,27 @@ It's also possible to create classes C<< using Tiny >> (L<Class::Tiny>),
 but there's probably little point in it, because Moops uses Moo
 internally, so the more capable Moo is already loaded and in memory.
 
-Moose classes are automatically accelerated using L<MooseX::XSAccessor>
-if it's installed.
-
 (The C<using> option is exempt from the package qualification rules
 mentioned earlier.)
+
+Moops uses L<MooseX::MungeHas> in your classes so that the C<has> keyword
+supports some Moo-specific features, even when you're using Moose or Mouse.
+Specifically, it supports C<< is => 'rwp' >>, C<< is => 'lazy' >>,
+C<< builder => 1 >>, C<< clearer => 1 >>, C<< predicate => 1 >>, and
+C<< trigger => 1 >>. If you're using Moo, the L<MooX::late> extension is
+enabled too, which allows Moose-isms in Moo too. With the combination of
+these features, there should be very little difference between Moo, Mouse
+and Moose C<has> keywords.
+
+Moose classes are automatically accelerated using L<MooseX::XSAccessor>
+if it's installed.
 
 Note that it is possible to declare a class with an empty body;
 use a trailing semicolon.
 
    class Employee extends Person with Employment;
 
-If using Moose or Mouse, classes are automatically made immutable. If
-using Moo, the L<MooX::late> extension is enabled.
+If using Moose or Mouse, classes are automatically made immutable. 
 
 L<namespace::sweep> is automatically used in all classes.
 
@@ -226,6 +236,10 @@ attributes may be provided:
 The following attributes are defined for classes:
 
 =over
+
+=item *
+
+C<< :assertions >> - enables assertion checking (see below)
 
 =item *
 
@@ -287,8 +301,9 @@ any class-specific or role-specific semantics.
 L<namespace::sweep> is not automatically used in namespaces.
 
 L<Attribute::Handlers>-style attributes are supported for namespaces,
-but none of the built-in attributes make any sense without class/role
-semantics. Traits written as Moops extensions may support namespaces.
+but most of the built-in attributes make any sense without class/role
+semantics. (C<< :assertions >> does.) Traits written as Moops extensions
+may support namespaces.
 
 =head2 Functions and Methods
 
@@ -387,7 +402,8 @@ These constants can help make attribute declarations more readable.
 
    has name => (is => 'ro', isa => Str, required => true);
 
-Further constants can be declared using the C<define> keyword:
+Further constants can be declared using the C<define> keyword (see
+L<PerlX::Define>):
 
    namespace Maths {
       define PI = 3.2;
@@ -395,6 +411,20 @@ Further constants can be declared using the C<define> keyword:
 
 Constants declared this way will I<not> be swept away by namespace::sweep,
 and are considered part of your package's API.
+
+=head2 Assertions
+
+Declared packages can contain assertions (see L<PerlX::Assert>). These
+are normally optimized away at compile time, but you can force them to
+be checked using the C<< :assertions >> attribute.
+
+   class Foo {
+      assert(false);    # not checked; optimized away
+   }
+   
+   class Bar :assertions {
+      assert(false);    # checked; fails; throws exception
+   }
 
 =head2 More Sugar
 
