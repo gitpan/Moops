@@ -27,10 +27,14 @@
 	], [ doap-deps:on "Moo 1.003000"^^doap-deps:CpanId ], [ doap-deps:on "MooX::late 0.014"^^doap-deps:CpanId ], [
 		doap-deps:on "MooseX::MungeHas 0.002"^^doap-deps:CpanId;
 	], [ doap-deps:on "Scalar::Util 1.24"^^doap-deps:CpanId ];
-	doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
-	doap-deps:test-recommendation [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
+	doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ], [
+		doap-deps:on "Role::Tiny 1.000000"^^doap-deps:CpanId;
+	], [ doap-deps:on "Class::Tiny 0.003"^^doap-deps:CpanId ];
+	doap-deps:test-recommendation [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ], [ doap-deps:on "Class::Tiny 0.003"^^doap-deps:CpanId ], [
+		doap-deps:on "Role::Tiny 1.000000"^^doap-deps:CpanId;
+	];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ], [ doap-deps:on "Test::Requires"^^doap-deps:CpanId ], [ doap-deps:on "Test::Fatal"^^doap-deps:CpanId ];
-	doap-deps:test-suggestion [
+	doap-deps:test-suggestion [ doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId ], [
 		doap-deps:on "MooseX::Types::Common::Numeric"^^doap-deps:CpanId;
 	];
 	doap:bug-database    <http://rt.cpan.org/Dist/Display.html?Queue=Moops>;
@@ -42,7 +46,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Moops";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-moops>;
@@ -328,6 +332,20 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.012.tar.gz>;
 	doap:revision        "0.012"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>
+	a                    doap:Version;
+	dc:identifier        "Moops-0.013"^^xsd:string;
+	dc:issued            "2013-08-20"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Bugfix;
+			rdfs:label "Fix test that uses Role::Tiny and Class::Tiny without declaring them (Test::Requires).";
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.013.tar.gz>;
+	doap:revision        "0.013"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;
