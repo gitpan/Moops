@@ -6,12 +6,13 @@ no warnings qw(void once uninitialized numeric);
 package Moops;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.014';
+our $VERSION   = '0.015';
 
 use Devel::Pragma qw(ccstash);
 use Exporter::TypeTiny qw(mkopt);
 use Keyword::Simple qw();
 use Module::Runtime qw(use_package_optimistically);
+use feature qw();
 use true qw();
 
 sub class_for_import_set

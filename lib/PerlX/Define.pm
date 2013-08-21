@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package PerlX::Define;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.014';
+our $VERSION   = '0.015';
 
 use B ();
 use Keyword::Simple ();
@@ -43,7 +43,7 @@ sub import
 			( $$line =~ m{\A([\n\s]*)(\w+)([\n\s]*)(=\>?)}s )
 			or Carp::croak("Syntax error near 'define'");
 		my $len = length($whitespace1. $name. $whitespace2. $equals);
-		substr($$line, 0, $len) = "; use Moops::DefineKeyword $name => ";
+		substr($$line, 0, $len) = "; use PerlX::Define $name => ";
 	});
 }
 

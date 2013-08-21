@@ -12,6 +12,7 @@ Files: README
  lib/PerlX/Assert.pm
  lib/PerlX/Define.pm
  t/01basic.t
+ t/02outer.t
  t/11class-moose.t
  t/11class-mouse.t
  t/11class-tiny.t
