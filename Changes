@@ -6,6 +6,10 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.017	2013-08-21
+
+ - (Update) Support Class::Tiny 0.004.
+
 0.016	2013-08-21
 
  - (Addition) Provide a `types` option for loading type constraint

@@ -4,9 +4,9 @@ use warnings;
 package Class::Tiny::Antlers;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.016';
+our $VERSION   = '0.017';
 
-use Class::Tiny 0.003 ();
+use Class::Tiny 0.004 ();
 
 sub import
 {
