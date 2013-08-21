@@ -224,6 +224,10 @@ DESCRIPTION
     The `method` keyword is not provided within packages declared using
     `namespace`; it is only available within classes and roles.
 
+    Within Moose classes and roles, the MooseX::FunctionParametersInfo module
+    is loaded, to allow access to method signatures via the meta object
+    protocol. (This is currently broken for `around` method modifiers.)
+
   Method Modifiers
     Within classes and roles, `before`, `after` and `around` keywords are
     provided for declaring method modifiers. These use the same syntax as

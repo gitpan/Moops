@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Class;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.013';
+our $VERSION   = '0.014';
 
 use Moo;
 use Devel::GlobalDestruction;
@@ -15,7 +15,7 @@ extends qw( Moops::Keyword::Role );
 
 my %using = (
 	Moo   => 'use Moo; use MooX::late;',
-	Moose => 'use Moose;',
+	Moose => 'use Moose; use MooseX::FunctionParametersInfo;',
 	Mouse => 'use Mouse;',
 	Tiny  => 'use Class::Tiny; use Class::Tiny::Antlers;',
 );

@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Role;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.013';
+our $VERSION   = '0.014';
 
 use Moo;
 use B qw(perlstring);
@@ -66,7 +66,7 @@ around generate_package_setup => sub
 
 my %using = (
 	Moo   => 'use Moo::Role; use MooX::late;',
-	Moose => 'use Moose::Role;',
+	Moose => 'use Moose::Role; use MooseX::FunctionParametersInfo;',
 	Mouse => 'use Mouse::Role;',
 	Tiny  => 'use Role::Tiny;',
 	(

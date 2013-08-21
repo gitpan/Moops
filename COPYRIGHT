@@ -6,7 +6,9 @@ Source: https://metacpan.org/release/Moops
 Files: README
  examples/bench.pl
  examples/extending-moops.pl
+ lib/Class/Tiny/Antlers.pm
  lib/Moops.pm
+ lib/MooseX/FunctionParametersInfo.pm
  lib/PerlX/Assert.pm
  lib/PerlX/Define.pm
  t/01basic.t
@@ -20,7 +22,9 @@ Files: README
  t/12role.t
  t/13namespace.t
  t/21fun.t
+ t/22method-moose.t
  t/22method.t
+ t/23modifiers-moose.t
  t/23modifiers.t
  t/31types-moose.t
  t/31types-moosextypes-imported.t
@@ -45,7 +49,6 @@ Files: Changes
  META.yml
  Makefile.PL
  dist.ini
- lib/Class/Tiny/Antlers.pm
  lib/Moops/ImportSet.pm
  lib/Moops/Keyword.pm
  lib/Moops/Keyword/Class.pm

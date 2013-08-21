@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::MethodModifiers;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.013';
+our $VERSION   = '0.014';
 
 use Attribute::Handlers;
 
@@ -46,13 +46,21 @@ sub find_installer
 sub wrap_method
 {
 	my ($pkg, undef, $code, $modifier) = @_;
-	return eval qq{
-		sub {
-			package $pkg;
-			local \${^NEXT} = shift(\@_);
-			\$code->(\@_);
-		}
-	} if lc($modifier) eq 'around';
+	
+	if (lc($modifier) eq 'around')
+	{
+		my $wrapped = eval qq{
+			sub {
+				package $pkg;
+				local \${^NEXT} = shift(\@_);
+				\$code->(\@_);
+			}
+		};
+		# XXX - this doesn't work!!!
+		$MooseX::FunctionParametersInfo::WRAPPERS{"$wrapped"} = $code;
+		return $wrapped;
+	}
+	
 	return $code;
 }
 
