@@ -33,11 +33,15 @@ Files: README
  t/31types-moosextypes.t
  t/31types-mouse.t
  t/31types.t
+ t/32typeimport-moosextypes.t
  t/32typeimport.t
+ t/33type-timing.t
  t/41constants.t
  t/51moresugar.t
  t/52customsugar.t
  t/61assertions.t
+ t/71library-moosextypes.t
+ t/71library.t
  t/91traits.t
  t/92trait-dirty.t
  t/93trait-mutable.t
@@ -47,13 +51,14 @@ License: GPL-1.0+ or Artistic-1.0
 
 Files: Changes
  META.json
- META.ttl
  META.yml
  Makefile.PL
  dist.ini
+ doap.ttl
  lib/Moops/ImportSet.pm
  lib/Moops/Keyword.pm
  lib/Moops/Keyword/Class.pm
+ lib/Moops/Keyword/Library.pm
  lib/Moops/Keyword/Role.pm
  lib/Moops/MethodModifiers.pm
  lib/Moops/Parser.pm
@@ -72,6 +77,7 @@ Files: CONTRIBUTING
  examples/lib/MoopsX/Ception.pm
  examples/lib/MoopsX/Ception/Keyword/Exception.pm
  examples/lib/MoopsX/Ception/Parser.pm
+ examples/using-moosextypes-in-moo.pl
 Copyright: Unknown
 License: Unknown
 
