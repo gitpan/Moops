@@ -6,6 +6,11 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.019	2013-08-30
+
+ - (Removal) Removed Class::Tiny::Antlers; this is now a separate CPAN
+   distribution.
+
 0.018	2013-08-27
 
  - (Addition) Add a `library` keyword for declaring type libraries.

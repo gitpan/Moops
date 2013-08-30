@@ -28,8 +28,12 @@
 	], [ doap-deps:on "Scalar::Util 1.24"^^doap-deps:CpanId ];
 	doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ], [
 		doap-deps:on "Role::Tiny 1.000000"^^doap-deps:CpanId;
-	], [ doap-deps:on "Class::Tiny 0.004"^^doap-deps:CpanId ];
-	doap-deps:test-recommendation [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ], [ doap-deps:on "Class::Tiny 0.004"^^doap-deps:CpanId ], [
+	], [
+		doap-deps:on "Class::Tiny::Antlers"^^doap-deps:CpanId;
+	];
+	doap-deps:test-recommendation [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ], [
+		doap-deps:on "Class::Tiny::Antlers"^^doap-deps:CpanId;
+	], [
 		doap-deps:on "Role::Tiny 1.000000"^^doap-deps:CpanId;
 	];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ], [ doap-deps:on "Test::Requires"^^doap-deps:CpanId ], [ doap-deps:on "Test::Fatal"^^doap-deps:CpanId ];
@@ -47,7 +51,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Moops";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-moops>;
@@ -429,6 +433,20 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.018.tar.gz>;
 	doap:revision        "0.018"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>
+	a                    doap:Version;
+	dc:identifier        "Moops-0.019"^^xsd:string;
+	dc:issued            "2013-08-30"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Removal;
+			rdfs:label "Removed Class::Tiny::Antlers; this is now a separate CPAN distribution.";
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.019.tar.gz>;
+	doap:revision        "0.019"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;

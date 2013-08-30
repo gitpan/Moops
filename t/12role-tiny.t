@@ -23,8 +23,7 @@ the same terms as the Perl 5 programming language system itself.
 use strict;
 use warnings;
 use Test::More;
-use Test::Requires { 'Role::Tiny' => '0' };
-use Test::Requires { 'Class::Tiny' => '0.004' };
+use Test::Requires { 'Class::Tiny::Antlers' => '0' };
 use Test::Fatal;
 
 use Moops;

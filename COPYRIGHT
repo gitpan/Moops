@@ -6,7 +6,6 @@ Source: https://metacpan.org/release/Moops
 Files: README
  examples/bench.pl
  examples/extending-moops.pl
- lib/Class/Tiny/Antlers.pm
  lib/Moops.pm
  lib/MooseX/FunctionParametersInfo.pm
  lib/PerlX/Assert.pm

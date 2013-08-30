@@ -18,7 +18,6 @@ examples/lib/MoopsX/Ception.pm
 examples/lib/MoopsX/Ception/Keyword/Exception.pm
 examples/lib/MoopsX/Ception/Parser.pm
 examples/using-moosextypes-in-moo.pl
-lib/Class/Tiny/Antlers.pm
 lib/Moops.pm
 lib/Moops/ImportSet.pm
 lib/Moops/Keyword.pm
