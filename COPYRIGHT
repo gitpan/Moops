@@ -71,11 +71,11 @@ Copyright: Copyright 2013 Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
 Files: CONTRIBUTING
+ INSTALL
  LICENSE
  examples/calculator.pl
- examples/lib/MoopsX/Ception.pm
- examples/lib/MoopsX/Ception/Keyword/Exception.pm
- examples/lib/MoopsX/Ception/Parser.pm
+ examples/lib/MoopsX/Keyword/Exception.pm
+ examples/lib/MoopsX/TraitFor/Parser/ExceptionKeyword.pm
  examples/using-moosextypes-in-moo.pl
 Copyright: Unknown
 License: Unknown

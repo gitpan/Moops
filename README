@@ -373,7 +373,7 @@ DESCRIPTION
   Custom Sugar
     It is possible to inject other functions into all inner packages using:
 
-       use Moops [
+       use Moops imports => [
           'List::Util'      => [qw( first reduce )],
           'List::MoreUtils' => [qw( any all none )],
        ];
@@ -390,26 +390,40 @@ EXTENDING
     can wrap all that up in a module:
 
        package MoopsX::Lists;
-       use Moops ();
+       use base 'Moops';
        use List::Util ();
        use List::MoreUtils ();
+   
        sub import {
-          push @{ $_[1] ||= [] }, (
+          my ($class, %opts) = @_;
+      
+          push @{ $opts{imports} ||= [] }, (
              'List::Util'      => [qw( first reduce )],
              'List::MoreUtils' => [qw( any all none )],
           );
-          goto \&Moops::import;
+      
+          $class->SUPER::import(%opts);
        }
+   
        1;
 
     Now people can do `use MoopsX::Lists` instead of `use Moops`.
 
-  Extending Moops via subclassing
-    For more complex needs, you should create a subclass of Moops, and
-    override the `class_for_parser` method to inject your own custom keyword
-    parser, which should be a subclass of Moops::Parser.
+  Extending Moops via keyword traits
+    Roles in the `Moops::TraitFor::Keyword` namespace are automatically loaded
+    and applied to keyword objects when a corresponding
+    Attribute::Handlers-style attribute is seen.
 
-    The parser subclass might want to override:
+    For examples extending Moops this way, see the
+    Moops::TraitFor::Keyword::dirty, Moops::TraitFor::Keyword::mutable,
+    Moops::TraitFor::Keyword::ro, Moops::TraitFor::Keyword::rw and
+    Moops::TraitFor::Keyword::rwp traits.
+
+  Extending Moops via parser traits
+    For more complex needs, you can create a trait which will be applied to
+    Moops::Parser.
+
+    Parser traits might want to override:
 
     *   The `keywords` class method, which returns the list of keywords the
         parser can handle.
@@ -445,15 +459,12 @@ EXTENDING
 
     Hopefully you'll be able to avoid overriding the `generate_code` method.
 
-  Extending Moops via traits
-    Roles in the `Moops::TraitFor::Keyword` namespace are automatically loaded
-    and applied to keyword objects when a corresponding
-    Attribute::Handlers-style attribute is seen.
+    You can apply your trait using:
 
-    For examples extending Moops this way, see the
-    Moops::TraitFor::Keyword::dirty, Moops::TraitFor::Keyword::mutable,
-    Moops::TraitFor::Keyword::ro, Moops::TraitFor::Keyword::rw and
-    Moops::TraitFor::Keyword::rwp traits.
+       use Moops traits => [
+          'Moops::TraitFor::Parser::FooKeyword',
+          'Moops::TraitFor::Parser::BarKeyword',
+       ];
 
 BUGS
     Please report any bugs to

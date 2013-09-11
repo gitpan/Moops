@@ -2,6 +2,7 @@
 @prefix doap:  <http://usefulinc.com/ns/doap#> .
 @prefix doap-changeset: <http://ontologi.es/doap-changeset#> .
 @prefix doap-deps: <http://ontologi.es/doap-deps#> .
+@prefix dt:    <http://ontologi.es/pretdsl#dt/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
@@ -13,6 +14,37 @@
 	a                    doap:Project;
 	dc:contributor       <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap-deps:develop-recommendation [ doap-deps:on "Dist::Inkt"^^doap-deps:CpanId ];
+	doap-deps:feature    [
+		doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ];
+		doap-deps:x_default true;
+		doap:name "Moo";
+		doap:shortdesc "allow classes and roles to be built with Moo";
+	], [
+		doap-deps:runtime-recommendation [
+			doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId;
+		];
+		doap-deps:runtime-requirement [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ];
+		doap-deps:test-suggestion [
+			doap-deps:on "MooseX::Types::Common::Numeric"^^doap-deps:CpanId;
+		];
+		doap-deps:x_default false;
+		doap:name "Moose";
+		doap:shortdesc "allow classes and roles to be built with Moose";
+	], [
+		doap-deps:runtime-requirement [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ];
+		doap-deps:x_default false;
+		doap:name "Mouse";
+		doap:shortdesc "allow classes and roles to be built with Mouse";
+	], [
+		doap-deps:runtime-requirement [
+			doap-deps:on "Role::Tiny 1.000000"^^doap-deps:CpanId;
+		], [
+			doap-deps:on "Class::Tiny::Antlers"^^doap-deps:CpanId;
+		];
+		doap-deps:x_default false;
+		doap:name "Tiny";
+		doap:shortdesc "allow classes and roles to be built with Class::Tiny/Role::Tiny";
+	];
 	doap-deps:runtime-requirement [ doap-deps:on "Devel::Pragma 0.54"^^doap-deps:CpanId ], [ doap-deps:on "Type::Utils 0.024"^^doap-deps:CpanId ], [ doap-deps:on "Try::Tiny 0.12"^^doap-deps:CpanId ], [
 		doap-deps:on "namespace::sweep 0.006"^^doap-deps:CpanId;
 	], [ doap-deps:on "true 0.18"^^doap-deps:CpanId ], [ doap-deps:on "perl 5.014"^^doap-deps:CpanId ], [
@@ -26,21 +58,9 @@
 	], [ doap-deps:on "Moo 1.003000"^^doap-deps:CpanId ], [ doap-deps:on "MooX::late 0.014"^^doap-deps:CpanId ], [
 		doap-deps:on "MooseX::MungeHas 0.002"^^doap-deps:CpanId;
 	], [ doap-deps:on "Scalar::Util 1.24"^^doap-deps:CpanId ];
-	doap-deps:runtime-suggestion [ doap-deps:on "MooX::HandlesVia"^^doap-deps:CpanId ], [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ], [
-		doap-deps:on "Role::Tiny 1.000000"^^doap-deps:CpanId;
-	], [
-		doap-deps:on "Class::Tiny::Antlers"^^doap-deps:CpanId;
-	];
-	doap-deps:test-recommendation [ doap-deps:on "Moose 2.0600"^^doap-deps:CpanId ], [ doap-deps:on "Mouse 1.00"^^doap-deps:CpanId ], [
-		doap-deps:on "Class::Tiny::Antlers"^^doap-deps:CpanId;
-	], [
-		doap-deps:on "Role::Tiny 1.000000"^^doap-deps:CpanId;
-	];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ], [ doap-deps:on "Test::Requires"^^doap-deps:CpanId ], [ doap-deps:on "Test::Fatal"^^doap-deps:CpanId ];
-	doap-deps:test-suggestion [ doap-deps:on "MooseX::XSAccessor"^^doap-deps:CpanId ], [
+	doap-deps:test-suggestion [
 		doap-deps:on "Types::XSD::Lite 0.003"^^doap-deps:CpanId;
-	], [
-		doap-deps:on "MooseX::Types::Common::Numeric"^^doap-deps:CpanId;
 	];
 	doap:bug-database    <http://rt.cpan.org/Dist/Display.html?Queue=Moops>;
 	doap:created         "2013-06-30"^^xsd:date;
@@ -51,7 +71,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Moops";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-020>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-moops>;
@@ -447,6 +467,23 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.019.tar.gz>;
 	doap:revision        "0.019"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Moops/v_0-020>
+	a                    doap:Version;
+	dc:identifier        "Moops-0.020"^^xsd:string;
+	dc:issued            "2013-09-11"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Packaging;
+			rdfs:label "List Moose/Mouse/Moo/Class::Tiny dependencies as optional_features in META.json.";
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Improve Moops' extensibility via parser traits.";
+		], "Moops->import now takes a hash of options (including the `imports` option) rather than an arrayref of modules to import."^^dt:BackCompat;
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.020.tar.gz>;
+	doap:revision        "0.020"^^xsd:string.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;

@@ -3,8 +3,8 @@
    "author" : [
       "Toby Inkster (TOBYINK) <tobyink@cpan.org>"
    ],
-   "dynamic_config" : 0,
-   "generated_by" : "Dist::Inkt::Profile::TOBYINK version 0.007, CPAN::Meta::Converter version 2.120921",
+   "dynamic_config" : 1,
+   "generated_by" : "Dist::Inkt::Profile::TOBYINK version 0.010, CPAN::Meta::Converter version 2.120921",
    "keywords" : [],
    "license" : [
       "perl"
@@ -23,6 +23,61 @@
          "xt"
       ]
    },
+   "optional_features" : {
+      "Moo" : {
+         "description" : "allow classes and roles to be built with Moo",
+         "prereqs" : {
+            "runtime" : {
+               "suggests" : {
+                  "MooX::HandlesVia" : "0"
+               }
+            }
+         },
+         "x_default" : 1
+      },
+      "Moose" : {
+         "description" : "allow classes and roles to be built with Moose",
+         "prereqs" : {
+            "runtime" : {
+               "recommends" : {
+                  "MooseX::XSAccessor" : "0"
+               },
+               "requires" : {
+                  "Moose" : "2.0600"
+               }
+            },
+            "test" : {
+               "suggests" : {
+                  "MooseX::Types::Common::Numeric" : "0"
+               }
+            }
+         },
+         "x_default" : 0
+      },
+      "Mouse" : {
+         "description" : "allow classes and roles to be built with Mouse",
+         "prereqs" : {
+            "runtime" : {
+               "requires" : {
+                  "Mouse" : "1.00"
+               }
+            }
+         },
+         "x_default" : 0
+      },
+      "Tiny" : {
+         "description" : "allow classes and roles to be built with Class::Tiny/Role::Tiny",
+         "prereqs" : {
+            "runtime" : {
+               "requires" : {
+                  "Class::Tiny::Antlers" : "0",
+                  "Role::Tiny" : "1.000000"
+               }
+            }
+         },
+         "x_default" : 0
+      }
+   },
    "prereqs" : {
       "configure" : {
          "requires" : {
@@ -31,7 +86,7 @@
       },
       "develop" : {
          "recommends" : {
-            "Dist::Inkt" : 0
+            "Dist::Inkt" : "0"
          }
       },
       "runtime" : {
@@ -50,31 +105,15 @@
             "namespace::sweep" : "0.006",
             "perl" : "5.014",
             "true" : "0.18"
-         },
-         "suggests" : {
-            "Class::Tiny::Antlers" : 0,
-            "MooX::HandlesVia" : 0,
-            "Moose" : "2.0600",
-            "MooseX::XSAccessor" : 0,
-            "Mouse" : "1.00",
-            "Role::Tiny" : "1.000000"
          }
       },
       "test" : {
-         "recommends" : {
-            "Class::Tiny::Antlers" : 0,
-            "Moose" : "2.0600",
-            "Mouse" : "1.00",
-            "Role::Tiny" : "1.000000"
-         },
          "requires" : {
-            "Test::Fatal" : 0,
+            "Test::Fatal" : "0",
             "Test::More" : "0.96",
-            "Test::Requires" : 0
+            "Test::Requires" : "0"
          },
          "suggests" : {
-            "MooseX::Types::Common::Numeric" : 0,
-            "MooseX::XSAccessor" : 0,
             "Types::XSD::Lite" : "0.003"
          }
       }
@@ -82,79 +121,79 @@
    "provides" : {
       "Moops" : {
          "file" : "lib/Moops.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::ImportSet" : {
          "file" : "lib/Moops/ImportSet.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::Keyword" : {
          "file" : "lib/Moops/Keyword.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::Keyword::Class" : {
          "file" : "lib/Moops/Keyword/Class.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::Keyword::Library" : {
          "file" : "lib/Moops/Keyword/Library.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::Keyword::Role" : {
          "file" : "lib/Moops/Keyword/Role.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::MethodModifiers" : {
          "file" : "lib/Moops/MethodModifiers.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::Parser" : {
          "file" : "lib/Moops/Parser.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::TraitFor::Keyword::assertions" : {
          "file" : "lib/Moops/TraitFor/Keyword/assertions.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::TraitFor::Keyword::dirty" : {
          "file" : "lib/Moops/TraitFor/Keyword/dirty.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::TraitFor::Keyword::mutable" : {
          "file" : "lib/Moops/TraitFor/Keyword/mutable.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::TraitFor::Keyword::ro" : {
          "file" : "lib/Moops/TraitFor/Keyword/ro.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::TraitFor::Keyword::rw" : {
          "file" : "lib/Moops/TraitFor/Keyword/rw.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "Moops::TraitFor::Keyword::rwp" : {
          "file" : "lib/Moops/TraitFor/Keyword/rwp.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "MooseX::FunctionParametersInfo" : {
          "file" : "lib/MooseX/FunctionParametersInfo.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "MooseX::FunctionParametersInfo::Trait::Method" : {
          "file" : "lib/MooseX/FunctionParametersInfo.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "MooseX::FunctionParametersInfo::Trait::WrappedMethod" : {
          "file" : "lib/MooseX/FunctionParametersInfo.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "PerlX::Assert" : {
          "file" : "lib/PerlX/Assert.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       },
       "PerlX::Define" : {
          "file" : "lib/PerlX/Define.pm",
-         "version" : "0.019"
+         "version" : "0.020"
       }
    },
    "release_status" : "stable",
@@ -172,6 +211,5 @@
          "web" : "https://github.com/tobyink/p5-moops"
       }
    },
-   "version" : "0.019",
-   "x_provides_scripts" : {}
+   "version" : "0.020"
 }
