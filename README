@@ -64,7 +64,7 @@ DESCRIPTION
     If your class extends an existing class through inheritance, or consumes
     one or more roles, these can also be provided when declaring the class.
 
-       class Foo::Bar 1.2 extends Foo with Magic::Monkeys {
+       class Foo::Bar 1.2 extends Foo 1.1 with Magic::Monkeys {
           # ...
        }
 
@@ -445,10 +445,14 @@ EXTENDING
         inter-package relationships such as `extends` and `using` for the
         current keyword.
 
-    *   The `qualify_relationship` object method, which, when given the name
-        of an inter-package relationship, indicates whether it should be
+    *   The `qualify_relationship` class method, which, when given the name of
+        an inter-package relationship, indicates whether it should be
         subjected to package qualification rules (like `extends` and `with`
         are, but `using` is not).
+
+    *   The `version_relationship` class method, which, when given the name of
+        an inter-package relationship, indicates whether it should accept a
+        version number.
 
     *   The `generate_package_setup` object method which returns a list of
         strings to inject into the package.
@@ -456,6 +460,9 @@ EXTENDING
     *   The `arguments_for_function_parameters` object method which is used by
         the default `generate_package_setup` method to set up the arguments to
         be passed to Function::Parameters.
+
+    *   The `check_prerequisites` method which performs certain pre-flight
+        checks and may throw an exception.
 
     Hopefully you'll be able to avoid overriding the `generate_code` method.
 

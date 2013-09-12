@@ -21,6 +21,7 @@ Files: README
  t/12role-tiny.t
  t/12role.t
  t/13namespace.t
+ t/14versions.t
  t/21fun.t
  t/22method-moose.t
  t/22method.t
@@ -45,6 +46,7 @@ Files: README
  t/92trait-dirty.t
  t/93trait-mutable.t
  t/94trait-ro-rw-rwp.t
+ t/QuuxDie.pm
 Copyright: This software is copyright (c) 2013 by Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 

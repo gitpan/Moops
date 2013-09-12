@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Role;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.020';
+our $VERSION   = '0.021';
 
 use Moo;
 use B qw(perlstring);
@@ -116,6 +116,13 @@ around known_relationships => sub
 };
 
 around qualify_relationship => sub
+{
+	my $next = shift;
+	my $self = shift;
+	$_[0] eq 'using' ? !!0 : $self->$next(@_);
+};
+
+around version_relationship => sub
 {
 	my $next = shift;
 	my $self = shift;

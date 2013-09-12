@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Library;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.020';
+our $VERSION   = '0.021';
 
 use Moo;
 extends 'Moops::Keyword';
@@ -71,6 +71,11 @@ sub known_relationships
 sub qualify_relationship
 {
 	$_[1] eq 'extends';
+}
+
+sub version_relationship
+{
+	$_[1] eq 'extends' or $_[1] eq 'types';
 }
 
 1;
