@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Library;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.021';
+our $VERSION   = '0.022';
 
 use Moo;
 extends 'Moops::Keyword';
@@ -55,8 +55,10 @@ sub arguments_for_function_parameters
 	return +{
 		fun => {
 			name                 => 'optional',
+			runtime              => 0,
 			default_arguments    => 1,
 			check_argument_count => 1,
+			check_argument_types => 0,
 			named_parameters     => 1,
 			types                => 0,
 		},

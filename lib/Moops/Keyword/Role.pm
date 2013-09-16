@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Role;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.021';
+our $VERSION   = '0.022';
 
 use Moo;
 use B qw(perlstring);
@@ -23,8 +23,10 @@ around arguments_for_function_parameters => sub
 	
 	$keywords->{method} = {
 		name                 => 'optional',
+		runtime              => 0,
 		default_arguments    => 1,
 		check_argument_count => 1,
+		check_argument_types => 1,
 		named_parameters     => 1,
 		types                => 1,
 		reify_type           => $reify,
@@ -34,8 +36,10 @@ around arguments_for_function_parameters => sub
 	};
 	$keywords->{ lc($_) } = {
 		name                 => 'required',
+		runtime              => 0,
 		default_arguments    => 1,
 		check_argument_count => 1,
+		check_argument_types => 1,
 		named_parameters     => 1,
 		types                => 1,
 		reify_type           => $reify,

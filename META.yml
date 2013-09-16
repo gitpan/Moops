@@ -44,64 +44,64 @@ optional_features:
 provides:
   Moops:
     file: lib/Moops.pm
-    version: 0.021
+    version: 0.022
   Moops::ImportSet:
     file: lib/Moops/ImportSet.pm
-    version: 0.021
+    version: 0.022
   Moops::Keyword:
     file: lib/Moops/Keyword.pm
-    version: 0.021
+    version: 0.022
   Moops::Keyword::Class:
     file: lib/Moops/Keyword/Class.pm
-    version: 0.021
+    version: 0.022
   Moops::Keyword::Library:
     file: lib/Moops/Keyword/Library.pm
-    version: 0.021
+    version: 0.022
   Moops::Keyword::Role:
     file: lib/Moops/Keyword/Role.pm
-    version: 0.021
+    version: 0.022
   Moops::MethodModifiers:
     file: lib/Moops/MethodModifiers.pm
-    version: 0.021
+    version: 0.022
   Moops::Parser:
     file: lib/Moops/Parser.pm
-    version: 0.021
+    version: 0.022
   Moops::TraitFor::Keyword::assertions:
     file: lib/Moops/TraitFor/Keyword/assertions.pm
-    version: 0.021
+    version: 0.022
   Moops::TraitFor::Keyword::dirty:
     file: lib/Moops/TraitFor/Keyword/dirty.pm
-    version: 0.021
+    version: 0.022
   Moops::TraitFor::Keyword::mutable:
     file: lib/Moops/TraitFor/Keyword/mutable.pm
-    version: 0.021
+    version: 0.022
   Moops::TraitFor::Keyword::ro:
     file: lib/Moops/TraitFor/Keyword/ro.pm
-    version: 0.021
+    version: 0.022
   Moops::TraitFor::Keyword::rw:
     file: lib/Moops/TraitFor/Keyword/rw.pm
-    version: 0.021
+    version: 0.022
   Moops::TraitFor::Keyword::rwp:
     file: lib/Moops/TraitFor/Keyword/rwp.pm
-    version: 0.021
+    version: 0.022
   MooseX::FunctionParametersInfo:
     file: lib/MooseX/FunctionParametersInfo.pm
-    version: 0.021
+    version: 0.022
   MooseX::FunctionParametersInfo::Trait::Method:
     file: lib/MooseX/FunctionParametersInfo.pm
-    version: 0.021
+    version: 0.022
   MooseX::FunctionParametersInfo::Trait::WrappedMethod:
     file: lib/MooseX/FunctionParametersInfo.pm
-    version: 0.021
+    version: 0.022
   PerlX::Assert:
     file: lib/PerlX/Assert.pm
-    version: 0.021
+    version: 0.022
   PerlX::Define:
     file: lib/PerlX/Define.pm
-    version: 0.021
+    version: 0.022
 requires:
   Devel::Pragma: 0.54
-  Function::Parameters: 1.0201
+  Function::Parameters: 1.0301
   Import::Into: 1.000000
   Keyword::Simple: 0.01
   Module::Runtime: 0.013
@@ -120,4 +120,4 @@ resources:
   homepage: https://metacpan.org/release/Moops
   license: http://dev.perl.org/licenses/
   repository: https://github.com/tobyink/p5-moops
-version: 0.021
+version: 0.022
