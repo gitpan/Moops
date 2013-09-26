@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.022';
+our $VERSION   = '0.023';
 
 use Moo;
 use B qw(perlstring);
@@ -45,7 +45,7 @@ sub generate_code
 	$inject .= "BEGIN { \$INC{${\ perlstring module_notional_filename $package }} = __FILE__ };";
 	
 	# Standard imports
-	$inject .= join qq[\n], $self->generate_package_setup;
+	$inject .= join q[], $self->generate_package_setup;
 	
 	# Additional imports
 	$inject .= $self->imports->generate_code($package) if $self->has_imports;

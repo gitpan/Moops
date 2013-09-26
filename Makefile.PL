@@ -7,7 +7,7 @@ my $meta = {
   "abstract"          => "Moops Object-Oriented Programming Sugar",
   "author"            => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
   "dynamic_config"    => 1,
-  "generated_by"      => "Dist::Inkt::Profile::TOBYINK version 0.010, CPAN::Meta::Converter version 2.120921",
+  "generated_by"      => "Dist::Inkt::Profile::TOBYINK version 0.013, CPAN::Meta::Converter version 2.120921",
   "keywords"          => [],
   "license"           => ["perl_5"],
   "meta-spec"         => {
@@ -75,28 +75,28 @@ my $meta = {
                                         },
                          },
   "provides"          => {
-                           "Moops"                                                => { file => "lib/Moops.pm", version => 0.022 },
-                           "Moops::ImportSet"                                     => { file => "lib/Moops/ImportSet.pm", version => 0.022 },
-                           "Moops::Keyword"                                       => { file => "lib/Moops/Keyword.pm", version => 0.022 },
-                           "Moops::Keyword::Class"                                => { file => "lib/Moops/Keyword/Class.pm", version => 0.022 },
-                           "Moops::Keyword::Library"                              => { file => "lib/Moops/Keyword/Library.pm", version => 0.022 },
-                           "Moops::Keyword::Role"                                 => { file => "lib/Moops/Keyword/Role.pm", version => 0.022 },
-                           "Moops::MethodModifiers"                               => { file => "lib/Moops/MethodModifiers.pm", version => 0.022 },
-                           "Moops::Parser"                                        => { file => "lib/Moops/Parser.pm", version => 0.022 },
+                           "Moops"                                                => { file => "lib/Moops.pm", version => 0.023 },
+                           "Moops::ImportSet"                                     => { file => "lib/Moops/ImportSet.pm", version => 0.023 },
+                           "Moops::Keyword"                                       => { file => "lib/Moops/Keyword.pm", version => 0.023 },
+                           "Moops::Keyword::Class"                                => { file => "lib/Moops/Keyword/Class.pm", version => 0.023 },
+                           "Moops::Keyword::Library"                              => { file => "lib/Moops/Keyword/Library.pm", version => 0.023 },
+                           "Moops::Keyword::Role"                                 => { file => "lib/Moops/Keyword/Role.pm", version => 0.023 },
+                           "Moops::MethodModifiers"                               => { file => "lib/Moops/MethodModifiers.pm", version => 0.023 },
+                           "Moops::Parser"                                        => { file => "lib/Moops/Parser.pm", version => 0.023 },
                            "Moops::TraitFor::Keyword::assertions"                 => {
                                                                                        file => "lib/Moops/TraitFor/Keyword/assertions.pm",
-                                                                                       version => 0.022,
+                                                                                       version => 0.023,
                                                                                      },
-                           "Moops::TraitFor::Keyword::dirty"                      => { file => "lib/Moops/TraitFor/Keyword/dirty.pm", version => 0.022 },
-                           "Moops::TraitFor::Keyword::mutable"                    => { file => "lib/Moops/TraitFor/Keyword/mutable.pm", version => 0.022 },
-                           "Moops::TraitFor::Keyword::ro"                         => { file => "lib/Moops/TraitFor/Keyword/ro.pm", version => 0.022 },
-                           "Moops::TraitFor::Keyword::rw"                         => { file => "lib/Moops/TraitFor/Keyword/rw.pm", version => 0.022 },
-                           "Moops::TraitFor::Keyword::rwp"                        => { file => "lib/Moops/TraitFor/Keyword/rwp.pm", version => 0.022 },
-                           "MooseX::FunctionParametersInfo"                       => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.022 },
-                           "MooseX::FunctionParametersInfo::Trait::Method"        => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.022 },
-                           "MooseX::FunctionParametersInfo::Trait::WrappedMethod" => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.022 },
-                           "PerlX::Assert"                                        => { file => "lib/PerlX/Assert.pm", version => 0.022 },
-                           "PerlX::Define"                                        => { file => "lib/PerlX/Define.pm", version => 0.022 },
+                           "Moops::TraitFor::Keyword::dirty"                      => { file => "lib/Moops/TraitFor/Keyword/dirty.pm", version => 0.023 },
+                           "Moops::TraitFor::Keyword::mutable"                    => { file => "lib/Moops/TraitFor/Keyword/mutable.pm", version => 0.023 },
+                           "Moops::TraitFor::Keyword::ro"                         => { file => "lib/Moops/TraitFor/Keyword/ro.pm", version => 0.023 },
+                           "Moops::TraitFor::Keyword::rw"                         => { file => "lib/Moops/TraitFor/Keyword/rw.pm", version => 0.023 },
+                           "Moops::TraitFor::Keyword::rwp"                        => { file => "lib/Moops/TraitFor/Keyword/rwp.pm", version => 0.023 },
+                           "MooseX::FunctionParametersInfo"                       => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.023 },
+                           "MooseX::FunctionParametersInfo::Trait::Method"        => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.023 },
+                           "MooseX::FunctionParametersInfo::Trait::WrappedMethod" => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.023 },
+                           "PerlX::Assert"                                        => { file => "lib/PerlX/Assert.pm", version => 0.023 },
+                           "PerlX::Define"                                        => { file => "lib/PerlX/Define.pm", version => 0.023 },
                          },
   "release_status"    => "stable",
   "resources"         => {
@@ -106,7 +106,7 @@ my $meta = {
                            repository   => { type => "git", web => "https://github.com/tobyink/p5-moops" },
                            X_identifier => "http://purl.org/NET/cpan-uri/dist/Moops/project",
                          },
-  "version"           => 0.022,
+  "version"           => 0.023,
 };
 
 if ($ENV{MM_INSTALL_FEATURES})
@@ -171,6 +171,7 @@ sub deps
 	{
 		for my $dep (keys %{$meta->{prereqs}{$stage}{requires}})
 		{
+			next if $dep eq 'perl';
 			my $ver = $meta->{prereqs}{$stage}{requires}{$dep};
 			$r{$dep} = $ver if !exists($r{$dep}) || $ver >= $r{$dep};
 		}
@@ -203,16 +204,19 @@ else
 }
 
 {
-	my $minperl = delete $WriteMakefileArgs{PREREQ_PM}{perl};
-	exists($WriteMakefileArgs{$_}) && delete($WriteMakefileArgs{$_}{perl})
-		for qw(BUILD_REQUIRES TEST_REQUIRES CONFIGURE_REQUIRES);
-	if ($minperl and $EUMM >= 6.48)
+	my ($minperl) = reverse sort(
+		grep defined && /^[0-9]+(\.[0-9]+)?$/,
+		map $meta->{prereqs}{$_}{requires}{perl},
+		qw( configure build runtime )
+	);
+	
+	if (defined($minperl))
 	{
-		$WriteMakefileArgs{MIN_PERL_VERSION} ||= $minperl;
-	}
-	elsif ($minperl)
-	{
-		die "Need Perl >= $minperl" unless $] >= $minperl;
+		die "Installing $meta->{name} requires Perl >= $minperl"
+			unless $] >= $minperl;
+		
+		$WriteMakefileArgs{MIN_PERL_VERSION} ||= $minperl
+			if $EUMM >= 6.48;
 	}
 }
 

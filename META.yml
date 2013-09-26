@@ -9,9 +9,9 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.17
 dynamic_config: 1
-generated_by: 'Dist::Inkt::Profile::TOBYINK version 0.010, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Inkt::Profile::TOBYINK version 0.013, CPAN::Meta::Converter version 2.120921'
 keywords: []
-license: unknown
+license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -44,61 +44,61 @@ optional_features:
 provides:
   Moops:
     file: lib/Moops.pm
-    version: 0.022
+    version: 0.023
   Moops::ImportSet:
     file: lib/Moops/ImportSet.pm
-    version: 0.022
+    version: 0.023
   Moops::Keyword:
     file: lib/Moops/Keyword.pm
-    version: 0.022
+    version: 0.023
   Moops::Keyword::Class:
     file: lib/Moops/Keyword/Class.pm
-    version: 0.022
+    version: 0.023
   Moops::Keyword::Library:
     file: lib/Moops/Keyword/Library.pm
-    version: 0.022
+    version: 0.023
   Moops::Keyword::Role:
     file: lib/Moops/Keyword/Role.pm
-    version: 0.022
+    version: 0.023
   Moops::MethodModifiers:
     file: lib/Moops/MethodModifiers.pm
-    version: 0.022
+    version: 0.023
   Moops::Parser:
     file: lib/Moops/Parser.pm
-    version: 0.022
+    version: 0.023
   Moops::TraitFor::Keyword::assertions:
     file: lib/Moops/TraitFor/Keyword/assertions.pm
-    version: 0.022
+    version: 0.023
   Moops::TraitFor::Keyword::dirty:
     file: lib/Moops/TraitFor/Keyword/dirty.pm
-    version: 0.022
+    version: 0.023
   Moops::TraitFor::Keyword::mutable:
     file: lib/Moops/TraitFor/Keyword/mutable.pm
-    version: 0.022
+    version: 0.023
   Moops::TraitFor::Keyword::ro:
     file: lib/Moops/TraitFor/Keyword/ro.pm
-    version: 0.022
+    version: 0.023
   Moops::TraitFor::Keyword::rw:
     file: lib/Moops/TraitFor/Keyword/rw.pm
-    version: 0.022
+    version: 0.023
   Moops::TraitFor::Keyword::rwp:
     file: lib/Moops/TraitFor/Keyword/rwp.pm
-    version: 0.022
+    version: 0.023
   MooseX::FunctionParametersInfo:
     file: lib/MooseX/FunctionParametersInfo.pm
-    version: 0.022
+    version: 0.023
   MooseX::FunctionParametersInfo::Trait::Method:
     file: lib/MooseX/FunctionParametersInfo.pm
-    version: 0.022
+    version: 0.023
   MooseX::FunctionParametersInfo::Trait::WrappedMethod:
     file: lib/MooseX/FunctionParametersInfo.pm
-    version: 0.022
+    version: 0.023
   PerlX::Assert:
     file: lib/PerlX/Assert.pm
-    version: 0.022
+    version: 0.023
   PerlX::Define:
     file: lib/PerlX/Define.pm
-    version: 0.022
+    version: 0.023
 requires:
   Devel::Pragma: 0.54
   Function::Parameters: 1.0301
@@ -120,4 +120,4 @@ resources:
   homepage: https://metacpan.org/release/Moops
   license: http://dev.perl.org/licenses/
   repository: https://github.com/tobyink/p5-moops
-version: 0.022
+version: 0.023

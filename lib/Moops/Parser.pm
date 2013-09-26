@@ -6,11 +6,16 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Parser;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.022';
+our $VERSION   = '0.023';
 
 use Moo;
+use Keyword::Simple ();
 use Module::Runtime qw($module_name_rx);
 use namespace::sweep;
+
+# I'm just going to assume that 0.01 is the only version that is ever going
+# to have that problem...
+use PerlX::Define _RT88970 => (Keyword::Simple->VERSION == 0.01) ? 1 : 0;
 
 has 'keyword'    => (is => 'ro');
 has 'ccstash'    => (is => 'ro');
@@ -24,6 +29,8 @@ has 'version_checks' => (is => 'rwp', init_arg => undef, default => sub { [] });
 has 'traits'         => (is => 'rwp', init_arg => undef, default => sub { +{} });
 has 'is_empty'       => (is => 'rwp', init_arg => undef, default => sub { 0 });
 has 'done'           => (is => 'rwp', init_arg => undef, default => sub { 0 });
+
+has 'lines'          => (is => 'rw',  init_arg => undef, default => sub { 0 });
 
 has 'class_for_keyword' => (
 	is      => 'lazy',
@@ -39,7 +46,7 @@ sub _eat
 {
 	my $self = shift;
 	my ($bite) = @_;
-	my $ref = $self->ref;
+	my $ref = $self->{ref};
 	
 	if (ref($bite) and $$ref =~ /\A($bite)/sm)
 	{
@@ -61,7 +68,7 @@ sub _eat
 sub _eat_space
 {
 	my $self = shift;
-	my $ref = $self->ref;
+	my $ref = $self->{ref};
 	
 	my $X;
 	while (
@@ -71,6 +78,9 @@ sub _eat_space
 		$X==2
 			? $self->_eat(qr{\A\#.+?\n}sm)
 			: $self->_eat($1);
+		$self->{lines} += $X==2
+			? 1
+			: (my @tmp = split /\n/, $1, -1)-1;
 	}
 	return;
 }
@@ -79,7 +89,7 @@ sub _peek
 {
 	my $self = shift;
 	my $re   = $_[0];
-	my $ref  = $self->ref;
+	my $ref  = $self->{ref};
 	
 	return scalar($$ref =~ m{\A$re});
 }
@@ -221,6 +231,13 @@ sub parse
 	}
 	
 	$self->_peek(qr/;/) ? $self->_set_is_empty(1) : $self->_eat('{');
+	
+	# We subtract 1 to work around RT#88970 when possible.
+	# This obviously won't solve anything if lines == 0
+	substr(${$self->{ref}}, 0, 0, ("\n" x ($self->{lines} - _RT88970)));
+	
+	# But we can try.
+	${$self->{ref}} =~ s/\A[\t\r\x20]*\n//ms if _RT88970 && !$self->{lines};
 	
 	$self->_set_done(1);
 }

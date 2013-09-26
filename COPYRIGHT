@@ -12,6 +12,7 @@ Files: README
  lib/PerlX/Define.pm
  t/01basic.t
  t/02outer.t
+ t/03lines.t
  t/11class-moose.t
  t/11class-mouse.t
  t/11class-tiny.t
@@ -78,6 +79,7 @@ Files: CONTRIBUTING
  examples/calculator.pl
  examples/lib/MoopsX/Keyword/Exception.pm
  examples/lib/MoopsX/TraitFor/Parser/ExceptionKeyword.pm
+ examples/using-moops-with-method-signatures.pl
  examples/using-moosextypes-in-moo.pl
 Copyright: Unknown
 License: Unknown
