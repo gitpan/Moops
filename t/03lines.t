@@ -6,8 +6,9 @@
 
 Test that Moops does not make line numbers insane!
 
-This test is currently skipped because
-L<RT#88970|https://rt.cpan.org/Ticket/Display.html?id=88970>.
+=head1 DEPENDENCIES
+
+Keyword::Simple 0.02, otherwise this test is skipped.
 
 =head1 AUTHOR
 
@@ -22,28 +23,26 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
-
-#line 24
+#line 27
 use strict;
 use warnings;
-use Test::More skip_all => 'todo - RT#88970';
+use Test::More;
+use Test::Requires { 'Keyword::Simple' => '0.02' };
 
 use Moops;
 
-BEGIN { ::is(__LINE__, 30); }
-
-#line 33
+#line 35
 class Bar;
-BEGIN { ::is(__LINE__, 34); }
+BEGIN { ::is(__LINE__, 36) }
 
-#line 37
+#line 39
 class Foo {
 	namespace TraitFor {
-		role Baz { ::is(__LINE__, 39) }
+		role Baz { ::is(__LINE__, 41) }
 	}
 }
 
-#line 44
+#line 46
 class
 Quux
 extends
@@ -57,7 +56,7 @@ Foo
 		with
 		Foo::TraitFor::Baz
 		{
-			::is(__LINE__, 57)
+			::is(__LINE__, 59)
 		}
 	}
 }

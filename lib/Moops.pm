@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.023';
+our $VERSION   = '0.024';
 
 use Devel::Pragma qw(ccstash);
 use Exporter::TypeTiny qw(mkopt);
@@ -650,13 +650,6 @@ You can apply your trait using:
    ];
 
 =head1 BUGS
-
-Prior to version 0.023, the imports that Moops injected into your packages
-threw off Perl's line number accounting, affecting line numbers displayed
-in error messages and warnings. As of 0.023 this is mostly fixed, however
-there's still a bug in L<Keyword::Simple> that can cause them to become
-off-by-one. Moops will attempt to work around this bug, but it's not always
-possible.
 
 Please report any other bugs to
 L<http://rt.cpan.org/Dist/Display.html?Queue=Moops>.
