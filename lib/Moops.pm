@@ -6,10 +6,10 @@ no warnings qw(void once uninitialized numeric);
 package Moops;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.024';
+our $VERSION   = '0.025';
 
 use Devel::Pragma qw(ccstash);
-use Exporter::TypeTiny qw(mkopt);
+use Exporter::Tiny qw(mkopt);
 use Keyword::Simple qw();
 use Module::Runtime qw(use_package_optimistically);
 use feature qw();
@@ -103,7 +103,7 @@ __END__
 
 =encoding utf-8
 
-=for stopwords featureful ro rw rwp
+=for stopwords featureful ro rw rwp superset
 
 =head1 NAME
 
@@ -141,6 +141,10 @@ Unstable.
 
 Until version 1.000, stuff might change, but not without good
 reason.
+
+In particular, a future version of Moops may replace
+L<Function::Parameters> with L<Kavorka>, which offers a superset
+of Function::Parameters' functionality.
 
 =head1 DESCRIPTION
 
