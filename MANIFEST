@@ -29,6 +29,7 @@ lib/Moops/MethodModifiers.pm
 lib/Moops/Parser.pm
 lib/Moops/TraitFor/Keyword/assertions.pm
 lib/Moops/TraitFor/Keyword/dirty.pm
+lib/Moops/TraitFor/Keyword/fp.pm
 lib/Moops/TraitFor/Keyword/mutable.pm
 lib/Moops/TraitFor/Keyword/ro.pm
 lib/Moops/TraitFor/Keyword/rw.pm

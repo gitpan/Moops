@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Library;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.025';
+our $VERSION   = '0.026';
 
 use Moo;
 extends 'Moops::Keyword';
@@ -46,23 +46,6 @@ sub generate_type_library_setup
 		"use Type::Utils -all;",
 		($extends ? "$extends;" : ()),
 	);
-}
-
-sub arguments_for_function_parameters
-{
-	my $class = shift;
-	
-	return +{
-		fun => {
-			name                 => 'optional',
-			runtime              => 0,
-			default_arguments    => 1,
-			check_argument_count => 1,
-			check_argument_types => 0,
-			named_parameters     => 1,
-			types                => 0,
-		},
-	};
 }
 
 sub known_relationships
