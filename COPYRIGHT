@@ -78,10 +78,12 @@ Files: CONTRIBUTING
  INSTALL
  LICENSE
  examples/calculator.pl
+ examples/class-versus-object-method.pl
  examples/lib/MoopsX/Keyword/Exception.pm
  examples/lib/MoopsX/TraitFor/Parser/ExceptionKeyword.pm
  examples/using-moops-with-method-signatures.pl
  examples/using-moosextypes-in-moo.pl
+ lib/Moops/Manual/Objects101.pod
 Copyright: Unknown
 License: Unknown
 

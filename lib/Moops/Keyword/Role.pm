@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Role;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.026';
+our $VERSION   = '0.027';
 
 use Moo;
 use B qw(perlstring);
@@ -44,7 +44,10 @@ sub generate_package_setup_oo
 	exists($using{$using})
 		or Carp::croak("Cannot create a package using $using; stopped");
 	
-	my @lines = 'use namespace::sweep;';
+	my @lines = (
+		'use namespace::sweep;',
+		'use Lexical::Accessor;',
+	);
 	push @lines, "use MooseX::MungeHas qw(@{[ $self->arguments_for_moosex_mungehas ]});"
 		if $using{$using} =~ /^Mo/;
 	
@@ -89,9 +92,16 @@ around arguments_for_kavorka => sub
 {
 	my $next = shift;
 	my $self = shift;
+	
+	my @keywords = qw/ method before after around /;
+	
+	my $using = $self->relations->{using}[0] // $self->default_oo_implementation;
+	push @keywords, qw/ override augment /
+		if $using =~ /^Mo[ou]se\b/;
+	
 	return (
 		$self->$next(@_),
-		qw/ method before after around /,
+		@keywords,
 	);
 };
 

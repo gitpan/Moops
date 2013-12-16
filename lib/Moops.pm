@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.026';
+our $VERSION   = '0.027';
 
 use Devel::Pragma qw(ccstash);
 use Exporter::Tiny qw(mkopt);
@@ -226,6 +226,29 @@ enabled too, which allows Moose-isms in Moo too. With the combination of
 these features, there should be very little difference between Moo, Mouse
 and Moose C<has> keywords.
 
+Moops uses L<Lexical::Accessor> to provide you with private (lexical)
+attributes - that is, attributes accessed via a coderef method in a
+lexical variable.
+
+   class Foo {
+      lexical_has foo => (
+         isa      => Int,
+         accessor => \(my $_foo),
+         default  => 0,
+      );
+      method increment_foo () {
+         $self->$_foo( 1 + $self->$_foo );
+      }
+      method get_foo () {
+         return $self->$_foo;
+      }
+   }
+   
+   my $x = Foo->new;
+   $x->increment_foo();     # ok
+   say $x->get_foo();       # says "1"
+   $x->$_foo(42);           # dies; $_foo does not exist in this scope
+
 Moose classes are automatically accelerated using L<MooseX::XSAccessor>
 if it's installed.
 
@@ -326,7 +349,7 @@ may support namespaces.
 =head2 Functions and Methods
 
 Moops uses L<Kavorka> to declare functions and methods within classes
-and roles.
+and roles. Kavorka provides the C<fun> and C<method> keywords.
 
    class Person {
       use Scalar::Util 'refaddr';
@@ -366,7 +389,9 @@ method like this:
    Person->is_same_as($phoebe, $ursula);   # false
 
 The C<method> keyword is not provided within packages declared using
-C<namespace>; it is only available within classes and roles.
+C<namespace>; only within classes and roles.
+
+See also L<Kavorka::Manual::Methods> and L<Kavorka::Manual::Functions>.
 
 Within Moose classes and roles, the L<MooseX::KavorkaInfo> module is
 loaded, to allow access to method signatures via the meta object
@@ -397,9 +422,16 @@ Within classes and roles, C<before>, C<after> and C<around> keywords
 are provided for declaring method modifiers. These use the same syntax
 as C<method>.
 
-Unlike Moo/Mouse/Moose, for C<around> modifiers, the coderef being
-wrapped is I<not> passed as C<< $_[0] >>. Instead, it's available in
-the global variable C<< ${^NEXT} >>.
+If your class or role is using Moose or Mouse, then you also get
+C<augment> and C<override> keywords.
+
+See also L<Kavorka::Manual::MethodModifiers>.
+
+=head2 Multi Methods
+
+L<Moops> uses L<Kavorka> to implement multi subs and multi methods.
+
+See also L<Kavorka::Manual::MultiSubs>.
 
 =head2 Type Constraints
 

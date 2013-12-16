@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.026';
+our $VERSION   = '0.027';
 
 use Moo;
 use B qw(perlstring);
@@ -91,7 +91,8 @@ sub generate_package_setup_oo
 sub generate_package_setup_methods
 {
 	my $self = shift;
-	return "use Kavorka '${\ ref($self) }'->arguments_for_kavorka(q[${\ $self->package }]);";
+	my @args = $self->arguments_for_kavorka($self->package);
+	return "use Kavorka qw(@args);";
 }
 
 sub generate_type_constraint_setup

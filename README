@@ -105,6 +105,29 @@ DESCRIPTION
     should be very little difference between Moo, Mouse and Moose `has`
     keywords.
 
+    Moops uses Lexical::Accessor to provide you with private (lexical)
+    attributes - that is, attributes accessed via a coderef method in a
+    lexical variable.
+
+       class Foo {
+          lexical_has foo => (
+             isa      => Int,
+             accessor => \(my $_foo),
+             default  => 0,
+          );
+          method increment_foo () {
+             $self->$_foo( 1 + $self->$_foo );
+          }
+          method get_foo () {
+             return $self->$_foo;
+          }
+       }
+   
+       my $x = Foo->new;
+       $x->increment_foo();     # ok
+       say $x->get_foo();       # says "1"
+       $x->$_foo(42);           # dies; $_foo does not exist in this scope
+
     Moose classes are automatically accelerated using MooseX::XSAccessor if
     it's installed.
 
@@ -183,7 +206,7 @@ DESCRIPTION
 
   Functions and Methods
     Moops uses Kavorka to declare functions and methods within classes and
-    roles.
+    roles. Kavorka provides the `fun` and `method` keywords.
 
        class Person {
           use Scalar::Util 'refaddr';
@@ -223,7 +246,9 @@ DESCRIPTION
        Person->is_same_as($phoebe, $ursula);   # false
 
     The `method` keyword is not provided within packages declared using
-    `namespace`; it is only available within classes and roles.
+    `namespace`; only within classes and roles.
+
+    See also Kavorka::Manual::Methods and Kavorka::Manual::Functions.
 
     Within Moose classes and roles, the MooseX::KavorkaInfo module is loaded,
     to allow access to method signatures via the meta object protocol. (This
@@ -253,9 +278,15 @@ DESCRIPTION
     provided for declaring method modifiers. These use the same syntax as
     `method`.
 
-    Unlike Moo/Mouse/Moose, for `around` modifiers, the coderef being wrapped
-    is *not* passed as $_[0]. Instead, it's available in the global variable
-    `${^NEXT}`.
+    If your class or role is using Moose or Mouse, then you also get `augment`
+    and `override` keywords.
+
+    See also Kavorka::Manual::MethodModifiers.
+
+  Multi Methods
+    Moops uses Kavorka to implement multi subs and multi methods.
+
+    See also Kavorka::Manual::MultiSubs.
 
   Type Constraints
     The Types::Standard type constraints are exported to each package declared

@@ -6,6 +6,18 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.027	2013-12-16
+
+ [ Documentation ]
+ - Include an example using multi methods to implement a class method and
+   object method with the same name as each other.
+ - Moops::Manual::Objects101.
+
+ [ Other ]
+ - Added: Private attributes via Lexical::Accessor.
+ - Moose/Mouse classes/roles now have override/augment method modifier
+   keywords.
+
 0.026	2013-11-18
 
  - Replace Function::Parameters with Kavorka.
