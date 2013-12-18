@@ -49,15 +49,24 @@ my $meta = {
                                     },
                          },
   "prereqs"           => {
-                           configure => { requires => { "ExtUtils::MakeMaker" => 6.17 } },
+                           configure => {
+                                          requires => {
+                                            "CPAN::Meta::Requirements" => "2.000",
+                                            "ExtUtils::MakeMaker"      => 6.17,
+                                          },
+                                        },
                            develop   => { recommends => { "Dist::Inkt" => 0 } },
                            runtime   => {
+                                          conflicts  => {
+                                                          "MooseX::Types::Common" => "== 0.001011",
+                                                          "MooseX::Types::URI"    => "== 0.04",
+                                                        },
                                           recommends => { "Keyword::Simple" => 0.02 },
                                           requires   => {
                                                           "Devel::Pragma"     => 0.54,
                                                           "Exporter::Tiny"    => 0.026,
                                                           "Import::Into"      => "1.000000",
-                                                          "Kavorka"           => 0.018,
+                                                          "Kavorka"           => 0.023,
                                                           "Keyword::Simple"   => 0.01,
                                                           "Lexical::Accessor" => 0.003,
                                                           "Module::Runtime"   => 0.013,
@@ -79,29 +88,29 @@ my $meta = {
                                         },
                          },
   "provides"          => {
-                           "Moops"                                                => { file => "lib/Moops.pm", version => 0.027 },
-                           "Moops::ImportSet"                                     => { file => "lib/Moops/ImportSet.pm", version => 0.027 },
-                           "Moops::Keyword"                                       => { file => "lib/Moops/Keyword.pm", version => 0.027 },
-                           "Moops::Keyword::Class"                                => { file => "lib/Moops/Keyword/Class.pm", version => 0.027 },
-                           "Moops::Keyword::Library"                              => { file => "lib/Moops/Keyword/Library.pm", version => 0.027 },
-                           "Moops::Keyword::Role"                                 => { file => "lib/Moops/Keyword/Role.pm", version => 0.027 },
-                           "Moops::MethodModifiers"                               => { file => "lib/Moops/MethodModifiers.pm", version => 0.027 },
-                           "Moops::Parser"                                        => { file => "lib/Moops/Parser.pm", version => 0.027 },
+                           "Moops"                                                => { file => "lib/Moops.pm", version => 0.028 },
+                           "Moops::ImportSet"                                     => { file => "lib/Moops/ImportSet.pm", version => 0.028 },
+                           "Moops::Keyword"                                       => { file => "lib/Moops/Keyword.pm", version => 0.028 },
+                           "Moops::Keyword::Class"                                => { file => "lib/Moops/Keyword/Class.pm", version => 0.028 },
+                           "Moops::Keyword::Library"                              => { file => "lib/Moops/Keyword/Library.pm", version => 0.028 },
+                           "Moops::Keyword::Role"                                 => { file => "lib/Moops/Keyword/Role.pm", version => 0.028 },
+                           "Moops::MethodModifiers"                               => { file => "lib/Moops/MethodModifiers.pm", version => 0.028 },
+                           "Moops::Parser"                                        => { file => "lib/Moops/Parser.pm", version => 0.028 },
                            "Moops::TraitFor::Keyword::assertions"                 => {
                                                                                        file => "lib/Moops/TraitFor/Keyword/assertions.pm",
-                                                                                       version => 0.027,
+                                                                                       version => 0.028,
                                                                                      },
-                           "Moops::TraitFor::Keyword::dirty"                      => { file => "lib/Moops/TraitFor/Keyword/dirty.pm", version => 0.027 },
-                           "Moops::TraitFor::Keyword::fp"                         => { file => "lib/Moops/TraitFor/Keyword/fp.pm", version => 0.027 },
-                           "Moops::TraitFor::Keyword::mutable"                    => { file => "lib/Moops/TraitFor/Keyword/mutable.pm", version => 0.027 },
-                           "Moops::TraitFor::Keyword::ro"                         => { file => "lib/Moops/TraitFor/Keyword/ro.pm", version => 0.027 },
-                           "Moops::TraitFor::Keyword::rw"                         => { file => "lib/Moops/TraitFor/Keyword/rw.pm", version => 0.027 },
-                           "Moops::TraitFor::Keyword::rwp"                        => { file => "lib/Moops/TraitFor/Keyword/rwp.pm", version => 0.027 },
-                           "MooseX::FunctionParametersInfo"                       => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.027 },
-                           "MooseX::FunctionParametersInfo::Trait::Method"        => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.027 },
-                           "MooseX::FunctionParametersInfo::Trait::WrappedMethod" => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.027 },
-                           "PerlX::Assert"                                        => { file => "lib/PerlX/Assert.pm", version => 0.027 },
-                           "PerlX::Define"                                        => { file => "lib/PerlX/Define.pm", version => 0.027 },
+                           "Moops::TraitFor::Keyword::dirty"                      => { file => "lib/Moops/TraitFor/Keyword/dirty.pm", version => 0.028 },
+                           "Moops::TraitFor::Keyword::fp"                         => { file => "lib/Moops/TraitFor/Keyword/fp.pm", version => 0.028 },
+                           "Moops::TraitFor::Keyword::mutable"                    => { file => "lib/Moops/TraitFor/Keyword/mutable.pm", version => 0.028 },
+                           "Moops::TraitFor::Keyword::ro"                         => { file => "lib/Moops/TraitFor/Keyword/ro.pm", version => 0.028 },
+                           "Moops::TraitFor::Keyword::rw"                         => { file => "lib/Moops/TraitFor/Keyword/rw.pm", version => 0.028 },
+                           "Moops::TraitFor::Keyword::rwp"                        => { file => "lib/Moops/TraitFor/Keyword/rwp.pm", version => 0.028 },
+                           "MooseX::FunctionParametersInfo"                       => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.028 },
+                           "MooseX::FunctionParametersInfo::Trait::Method"        => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.028 },
+                           "MooseX::FunctionParametersInfo::Trait::WrappedMethod" => { file => "lib/MooseX/FunctionParametersInfo.pm", version => 0.028 },
+                           "PerlX::Assert"                                        => { file => "lib/PerlX/Assert.pm", version => 0.028 },
+                           "PerlX::Define"                                        => { file => "lib/PerlX/Define.pm", version => 0.028 },
                          },
   "release_status"    => "stable",
   "resources"         => {
@@ -111,7 +120,7 @@ my $meta = {
                            repository   => { type => "git", web => "https://github.com/tobyink/p5-moops" },
                            X_identifier => "http://purl.org/NET/cpan-uri/dist/Moops/project",
                          },
-  "version"           => 0.027,
+  "version"           => 0.028,
 };
 
 if ($ENV{MM_INSTALL_FEATURES})
@@ -156,6 +165,30 @@ MM_INSTALL_FEATURES
 }
 
 my %dynamic_config;
+for my $stage (keys %{$meta->{prereqs}})
+{
+	my $conflicts = $meta->{prereqs}{$stage}{conflicts} or next;
+	require CPAN::Meta::Requirements;
+	$conflicts = 'CPAN::Meta::Requirements'->from_string_hash($conflicts);
+	
+	for my $module ($conflicts->required_modules)
+	{
+		eval "require $module" or next;
+		my $installed = eval(sprintf('$%s::VERSION', $module));
+		$conflicts->accepts_module($module, $installed) or next;
+		
+		my $message = "\n".
+			"** This version of $meta->{name} conflicts with the version of\n".
+			"** module $module ($installed) you have installed.\n";
+		die($message . "\n" . "Bailing out")
+			if $stage eq 'build' || $stage eq 'configure';
+		
+		$message .= "**\n".
+			"** It's strongly recommended that you update it after\n".
+			"** installing this version of $meta->{name}.\n";
+		warn("$message\n");
+	}
+}
 
 my %WriteMakefileArgs = (
 	ABSTRACT   => $meta->{abstract},

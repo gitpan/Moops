@@ -6,6 +6,15 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.028	2013-12-18
+
+ [ Documentation ]
+ - Demonstrate `is override` trait in Moops::Manual::Objects101.
+
+ [ Packaging ]
+ - Indicate conflict with MooseX::Types::Common 0.001011.
+ - Indicate conflict with MooseX::Types::URI 0.05.
+
 0.027	2013-12-16
 
  [ Documentation ]

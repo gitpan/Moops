@@ -17,16 +17,16 @@ Hash: SHA1
 SHA1 294505f858f11dd062e9916e3f50d88210a9ef54 CONTRIBUTING
 SHA1 cc531e0637800d98934d7ab43063369b37ae50df COPYRIGHT
 SHA1 6bd7b17d81be63d08d4efa6cb80106e72887842c CREDITS
-SHA1 98ef40c1ba54bfcb872ac7b41f08be83b9e2d60d Changes
+SHA1 f2dbdfe0b1e10212af63e3b95472e21261a63d42 Changes
 SHA1 778e63aaaa913ee92351d9f7c8353883969ef64c INSTALL
 SHA1 ec5a7b4f3023f03ebf821b57690758f7e6f3ae2a LICENSE
 SHA1 55c12d34499146bc54a5387a5158dabd1a2ab892 MANIFEST
-SHA1 732343bcca8f99c204318c8b90fcf934dd8ee79f META.json
-SHA1 7c5b257e9a28f3e73558c4a9d56c4ea99d8b78f1 META.yml
-SHA1 0b314da479c1037d35b05ac4746202cb9d93f353 Makefile.PL
+SHA1 51738f846afb70b17e2580ff8b0e9bc34e31e899 META.json
+SHA1 bf6d698e181c0b4a919b719f071ccbf1d2b79106 META.yml
+SHA1 0d8f7ec60eac0ba8a1156faa051f4c617615c84d Makefile.PL
 SHA1 4de04b1a7e7d525f6ddd5c70070b2ff1510f642d README
 SHA1 a1de9e1386567b9f2d16b830fac353cf8b0ce888 dist.ini
-SHA1 4f478891646e338f1473405013ac05fe4eacca87 doap.ttl
+SHA1 796f0e38b1c9fa32514f2660715c753905e9e40e doap.ttl
 SHA1 327c3931098a4aabacf484977bffe8af64bcac6c examples/bench.pl
 SHA1 f93ec33dbded76078df892fe8a76bcf277fce309 examples/calculator.pl
 SHA1 4c8cf95ea28826e3a3363be2bec79e751d541faf examples/class-versus-object-method.pl
@@ -35,25 +35,25 @@ SHA1 08c658b3e06cf364d4f6f8c00e54c34475fa49f5 examples/lib/MoopsX/Keyword/Except
 SHA1 666df19166e0e54b5eed2bc9e7f90d6748551eed examples/lib/MoopsX/TraitFor/Parser/ExceptionKeyword.pm
 SHA1 797b9a9e22b785b9f62510e16ea2300bb0e1f4d7 examples/using-moops-with-method-signatures.pl
 SHA1 7ffa5a1438c744e564877933571a806efe50be30 examples/using-moosextypes-in-moo.pl
-SHA1 7c01b8aefe7916aebdc2bfc0d2cbd6b79488190d lib/Moops.pm
-SHA1 9167898e0d6545e435a7c214e001ce23948ead54 lib/Moops/ImportSet.pm
-SHA1 18b53dacde182fbfb97b4696c7577947c2585d6b lib/Moops/Keyword.pm
-SHA1 d8a52b46b6c99153a44686dea15ddf1688c81b21 lib/Moops/Keyword/Class.pm
-SHA1 a9f6fabb064e61febc059115d5db4299f931e680 lib/Moops/Keyword/Library.pm
-SHA1 4e5c8a2673bbbd519a9855386a5b7710e2275572 lib/Moops/Keyword/Role.pm
-SHA1 e03908b1029a8481f0568250a95270296b783309 lib/Moops/Manual/Objects101.pod
-SHA1 c78124a13f0989f4c2059700d4f51eeb96610fdd lib/Moops/MethodModifiers.pm
-SHA1 afa71d29240ec66ef7bb86f40d2f1bc7220ce4e8 lib/Moops/Parser.pm
-SHA1 180745a4450bc64144c901f297fdcc9f87488584 lib/Moops/TraitFor/Keyword/assertions.pm
-SHA1 ee4fb33302db5c471c0fdef0a6a5b05a145373b2 lib/Moops/TraitFor/Keyword/dirty.pm
-SHA1 3137068f2d9b071f2d4f5aa33d575e0930adf556 lib/Moops/TraitFor/Keyword/fp.pm
-SHA1 7ed985b98bfe3810592fdcd3f484d15ae98d2d86 lib/Moops/TraitFor/Keyword/mutable.pm
-SHA1 d8731669bde6e897b0c794c57abafdc97b4b994f lib/Moops/TraitFor/Keyword/ro.pm
-SHA1 d641261765d250efcb5d31713a483739824df995 lib/Moops/TraitFor/Keyword/rw.pm
-SHA1 2dc67304e42e83b3b7c7b293baffa1057cdae187 lib/Moops/TraitFor/Keyword/rwp.pm
-SHA1 0fe2c4bd5efe807f451003895c829c2dd962a182 lib/MooseX/FunctionParametersInfo.pm
-SHA1 baca3e466284c5881061be70ad4c31d90d0c10df lib/PerlX/Assert.pm
-SHA1 fd2d8d439ed34a934dcb8253579300b07f75c7bb lib/PerlX/Define.pm
+SHA1 24a0cc987de238870ffc6a39846b1f0cfe356517 lib/Moops.pm
+SHA1 e95900ec53778ce23b4e2e1988dd309c36532dda lib/Moops/ImportSet.pm
+SHA1 4b2d0b87b2e7fbe29c2d2194efa0c007eba6106d lib/Moops/Keyword.pm
+SHA1 eb2d9ec34cff01adecf06a220a3fbb2209f43529 lib/Moops/Keyword/Class.pm
+SHA1 6401dcfcb2434260917931af3a5b744aa1f2e81f lib/Moops/Keyword/Library.pm
+SHA1 59e0ba0e149de20029c08530cdcdefddc98247ee lib/Moops/Keyword/Role.pm
+SHA1 0557a0fa01f19b9b615cd43ce18d7318f88f1aa2 lib/Moops/Manual/Objects101.pod
+SHA1 6d018b4cfbdad98e258e801de632e1ddda0e78a9 lib/Moops/MethodModifiers.pm
+SHA1 4784803c98264bc4b4db17834e090449785d585f lib/Moops/Parser.pm
+SHA1 0c375b081507c239641d980a718de934bcdeb7e1 lib/Moops/TraitFor/Keyword/assertions.pm
+SHA1 3e77d5d727d9bbc4274432aac6d1146558fa71b4 lib/Moops/TraitFor/Keyword/dirty.pm
+SHA1 2e9a29bd00f67d7eb2e48e134bbe7728cd4baceb lib/Moops/TraitFor/Keyword/fp.pm
+SHA1 d324904491dc6b6e23993f697c7dae556c309fff lib/Moops/TraitFor/Keyword/mutable.pm
+SHA1 21de678c830b7db1e72116104330154b13ed703e lib/Moops/TraitFor/Keyword/ro.pm
+SHA1 58793e6e3972cd5fa9d7a0e6d3a9c46426548cb4 lib/Moops/TraitFor/Keyword/rw.pm
+SHA1 74fefdfb11347a971665b5aa59e1aaf3261b9aae lib/Moops/TraitFor/Keyword/rwp.pm
+SHA1 0ed3327f16d3543553de65ae14caed26892f6033 lib/MooseX/FunctionParametersInfo.pm
+SHA1 06c8d9568698d90680ff1f22ff0f9b646a2261a5 lib/PerlX/Assert.pm
+SHA1 dd91306c50124d994597914860751041291019e4 lib/PerlX/Define.pm
 SHA1 d4789849156beaa5d4fe76976178a7943cfa2f64 t/01basic.t
 SHA1 6ee6019c4ba095b91872288528c0c8d8c23b9159 t/02outer.t
 SHA1 530f300e87bb41d4cd3a5298ed1323de4981cc31 t/03lines.t
@@ -74,8 +74,8 @@ SHA1 b9d2c6b0312602d04113968ed14dd57b3c788152 t/23modifiers-moose.t
 SHA1 6aa602547f460117b1fbdbd9f50a6c76dee618d8 t/23modifiers.t
 SHA1 fabafb0fe9f2e47937b241e60e4dfe4e1e91018a t/31types-moose.t
 SHA1 4fdd134b1a6afa5369cb280f0115e4df85c1821a t/31types-moosextypes-imported.t
-SHA1 f9e2bd22e0645c037441cef3d59993e8f747b713 t/31types-moosextypes-moo.t
-SHA1 f0d498173292e34cb4775d5f5983aee4097a1adc t/31types-moosextypes.t
+SHA1 0a4324286551cfc412bbb270a27b9b962c00f95e t/31types-moosextypes-moo.t
+SHA1 866569201c298966abfadbdc96130445b4ceb865 t/31types-moosextypes.t
 SHA1 a7771a78bd3b5456e99449d31409e936c94af7a9 t/31types-mouse.t
 SHA1 e4ddd490cc5d089565f4e3a08c14cc3cd5edf27e t/31types.t
 SHA1 33c701d411f6dba226ea88a62e95e37d2b92ca53 t/32typeimport-moosextypes.t
@@ -95,7 +95,7 @@ SHA1 be64d026fa2d00c03a9bca656721078ef1d9234e t/QuuxDie.pm
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.14 (GNU/Linux)
 
-iEYEARECAAYFAlKvZwoACgkQzr+BKGoqfTnqUgCgoQo7sXyd+teJyJ9OuEOcSQjC
-VmsAn1A9+xHlBiDiTauFcG++3C0+sL+n
-=HM3J
+iEYEARECAAYFAlKx0+4ACgkQzr+BKGoqfTnsUgCgoWBC47n6CtbmulIwQOiWRNVj
+SJsAoKEFcd/3ol918P5EVpktpEn9+KYf
+=zBrL
 -----END PGP SIGNATURE-----
