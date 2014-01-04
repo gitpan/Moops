@@ -19,7 +19,7 @@ my $dummy = 'Function::Parameters::Info'->new(
 {
 	package MooseX::FunctionParametersInfo;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.028';
+	our $VERSION   = '0.029';
 	
 	sub _unwrap
 	{
@@ -46,7 +46,7 @@ my $dummy = 'Function::Parameters::Info'->new(
 {
 	package MooseX::FunctionParametersInfo::Trait::Method;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.028';
+	our $VERSION   = '0.029';
 	
 	use Moose::Role;
 	
@@ -91,7 +91,7 @@ my $dummy = 'Function::Parameters::Info'->new(
 {
 	package MooseX::FunctionParametersInfo::Trait::WrappedMethod;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.028';
+	our $VERSION   = '0.029';
 	
 	use Moose::Role;
 	with 'MooseX::FunctionParametersInfo::Trait::Method';
@@ -219,7 +219,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2013 by Toby Inkster.
+This software is copyright (c) 2013-2014 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Class;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.028';
+our $VERSION   = '0.029';
 
 use Moo;
 use Devel::GlobalDestruction;
@@ -36,10 +36,11 @@ sub generate_package_setup_oo
 		or Carp::croak("Cannot create a package using $using; stopped");
 	
 	my @lines = (
-		'use namespace::sweep;',
-		"use MooseX::MungeHas qw(@{[ $self->arguments_for_moosex_mungehas ]});",
-#		'BEGIN { no warnings "redefine"; my $orig = \&has; *has = sub { warn __PACKAGE__." has @_"; goto $orig; } };',
+		'use namespace::sweep -also => "has";',
+		'use Lexical::Accessor;',
 	);
+	push @lines, "use MooseX::MungeHas qw(@{[ $self->arguments_for_moosex_mungehas ]});"
+		if $using =~ /^Mo/;
 
 	if ($using eq 'Moose' or $using eq 'Mouse')
 	{

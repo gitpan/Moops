@@ -528,6 +528,13 @@ BUGS
     Please report any other bugs to
     <http://rt.cpan.org/Dist/Display.html?Queue=Moops>.
 
+SUPPORT
+    IRC: support is available through in the *#moops* channel on irc.perl.org
+    <http://www.irc.perl.org/channels.html>.
+
+    For anything Moo-specific, you may have better luck in the *#web-simple*
+    channel; or for Moose-specific queries, *#moose*.
+
 SEE ALSO
     Similar: MooseX::Declare, <https://github.com/stevan/p5-mop-redux>.
 
@@ -543,7 +550,7 @@ AUTHOR
     Toby Inkster <tobyink@cpan.org>.
 
 COPYRIGHT AND LICENCE
-    This software is copyright (c) 2013 by Toby Inkster.
+    This software is copyright (c) 2013-2014 by Toby Inkster.
 
     This is free software; you can redistribute it and/or modify it under the
     same terms as the Perl 5 programming language system itself.
