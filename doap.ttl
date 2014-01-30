@@ -68,9 +68,10 @@
 		doap-deps:on "Exporter::Tiny 0.026"^^doap-deps:CpanId;
 	], [
 		doap-deps:on "Import::Into 1.000000"^^doap-deps:CpanId;
-	], [ doap-deps:on "Kavorka 0.023"^^doap-deps:CpanId ], [
+	], [ doap-deps:on "Kavorka 0.027"^^doap-deps:CpanId ], [
 		doap-deps:on "Keyword::Simple 0.01"^^doap-deps:CpanId;
 	];
+	doap-deps:test-recommendation [ doap-deps:on "Test::Warnings"^^doap-deps:CpanId ];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ], [ doap-deps:on "Test::Requires"^^doap-deps:CpanId ], [ doap-deps:on "Test::Fatal"^^doap-deps:CpanId ];
 	doap-deps:test-suggestion [
 		doap-deps:on "Types::XSD::Lite 0.003"^^doap-deps:CpanId;
@@ -84,7 +85,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Moops";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-020>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-021>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-022>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-023>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-024>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-025>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-026>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-027>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-028>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-029>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-020>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-021>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-022>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-023>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-024>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-025>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-026>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-027>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-028>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-029>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-030>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-moops>;
@@ -164,11 +165,11 @@
 			a doap-changeset:Removal;
 			rdfs:label "Drop the `classmethod` keyword; it's better to use `method` and give the invocant an explicit variable name.";
 		], [
-			a doap-changeset:Addition;
-			rdfs:label "Implement `before`, `after` and `around` method modifiers.";
-		], [
 			a doap-changeset:Change;
 			rdfs:label "The `method` keyword is only available in classes and roles; not plain namespaces.";
+		], [
+			a doap-changeset:Addition;
+			rdfs:label "Implement `before`, `after` and `around` method modifiers.";
 		];
 	];
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
@@ -650,6 +651,35 @@
 	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.029.tar.gz>;
 	doap:revision        "0.029"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/dist/Moops/v_0-030>
+	a                    doap:Version;
+	dc:identifier        "Moops-0.030"^^xsd:string;
+	dc:issued            "2014-01-30"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Packaging;
+			rdfs:label "Require at least version 0.027 of Kavorka; this resolves a conflict using Moops with MooX::Options.";
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Hard-code a list of warnings categories to fatalize; this means that warnings categories added to future versions of Perl will not magically become fatal in Moops.";
+		], [
+			a doap-changeset:Addition, doap-changeset:Documentation;
+			rdfs:label "Include an example using Moops to write a command-line app.";
+			doap-changeset:blame <http://purl.org/NET/cpan-uri/person/mmaurice>;
+			rdfs:seeAlso <https://github.com/tobyink/p5-moops/pull/1>;
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.030.tar.gz>;
+	doap:revision        "0.030"^^xsd:string.
+
+<http://purl.org/NET/cpan-uri/person/mmaurice>
+	a                    foaf:Person;
+	foaf:mbox            <mailto:mmaurice@cpan.org>;
+	foaf:name            "Maurice Mengel";
+	foaf:nick            "MMAURICE";
+	foaf:page            <https://metacpan.org/author/MMAURICE>.
 
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;

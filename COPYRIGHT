@@ -75,11 +75,11 @@ Files: CONTRIBUTING
  LICENSE
  examples/calculator.pl
  examples/class-versus-object-method.pl
+ examples/cli-app.pl
  examples/lib/MoopsX/Keyword/Exception.pm
  examples/lib/MoopsX/TraitFor/Parser/ExceptionKeyword.pm
  examples/using-moops-with-method-signatures.pl
  examples/using-moosextypes-in-moo.pl
- lib/Moops/Manual/Objects101.pod
 Copyright: Unknown
 License: Unknown
 
@@ -99,6 +99,14 @@ Files: examples/bench.pl
 Copyright: This software is copyright (c) 2013 by Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
+Files: lib/Moops/Manual/Objects101.pod
+Copyright: Copyright 2013-2014 Toby Inkster and others.
+License: Expat
+
+Files: t/53warnings.t
+Copyright: This software is copyright (c) 2014 by Toby Inkster.
+License: GPL-1.0+ or Artistic-1.0
+
 License: Artistic-1.0
  This software is Copyright (c) 2014 by the copyright holder(s).
  
@@ -112,3 +120,10 @@ License: GPL-1.0
  This is free software, licensed under:
  
    The GNU General Public License, Version 1, February 1989
+
+License: Expat
+ This software is Copyright (c) 2014 by the copyright holder(s).
+ 
+ This is free software, licensed under:
+ 
+   The MIT (X11) License

@@ -6,6 +6,22 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.030	2014-01-30
+
+ [ Documentation ]
+ - Include an example using Moops to write a command-line app.
+   Maurice Mengel++
+   <https://github.com/tobyink/p5-moops/pull/1>
+
+ [ Packaging ]
+ - Require at least version 0.027 of Kavorka; this resolves a conflict
+   using Moops with MooX::Options.
+
+ [ Other ]
+ - Hard-code a list of warnings categories to fatalize; this means that
+   warnings categories added to future versions of Perl will not magically
+   become fatal in Moops.
+
 0.029	2014-01-04
 
  [ Bug Fixes ]

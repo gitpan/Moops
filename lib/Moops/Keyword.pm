@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.029';
+our $VERSION   = '0.030';
 
 use Moo;
 use B qw(perlstring);
@@ -79,7 +79,8 @@ sub generate_package_setup
 		$self->generate_package_setup_methods,
 		'use v5.14;',
 		'use strict;',
-		'use warnings FATAL => qw(all); no warnings qw(void once uninitialized numeric);',
+		'no warnings;',
+		'use warnings FATAL => @Moops::FATAL_WARNINGS;',
 	);
 }
 

@@ -15,6 +15,7 @@ doap.ttl
 examples/bench.pl
 examples/calculator.pl
 examples/class-versus-object-method.pl
+examples/cli-app.pl
 examples/extending-moops.pl
 examples/lib/MoopsX/Keyword/Exception.pm
 examples/lib/MoopsX/TraitFor/Parser/ExceptionKeyword.pm
@@ -69,6 +70,7 @@ t/33type-timing.t
 t/41constants.t
 t/51moresugar.t
 t/52customsugar.t
+t/53warnings.t
 t/61assertions.t
 t/71library-moosextypes.t
 t/71library.t
