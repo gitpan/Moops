@@ -6,6 +6,29 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.031	2014-03-23
+
+ [ Documentation ]
+ - Fix typo in manual.
+   Fixes RT#93553.
+   Ron Savage++
+   <https://rt.cpan.org/Ticket/Display.html?id=93553>
+ - Use the `true` constant instead of the number 1 in the cli-app.pl
+   example.
+
+ [ Test Suite ]
+ - Test Moops in threaded Perls.
+   Aaron James Trevena++
+
+ [ Other ]
+ - Added: The new import parameter `-strict` enables loading strictures.pm
+   within Moops scopes.
+ - Avoid returning 0 from `assert` statements (PerlX::Assert).
+ - Use Parse::Keyword instead of Devel::Pragma in order to establish the
+   currently compiling package name. Devel::Pragma has issues under
+   ithreads.
+   Piers Cawley++
+
 0.030	2014-01-30
 
  [ Documentation ]

@@ -433,6 +433,10 @@ DESCRIPTION
     This is by far the easiest way to extend Moops with project-specific
     extras.
 
+    There is a shortcut for injecting strictures into all inner packages:
+
+       use Moops -strict;
+
 EXTENDING
     Moops is written to hopefully be fairly extensible.
 

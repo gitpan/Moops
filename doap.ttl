@@ -1,5 +1,6 @@
 @prefix dc:    <http://purl.org/dc/terms/> .
 @prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix doap-bugs: <http://ontologi.es/doap-bugs#> .
 @prefix doap-changeset: <http://ontologi.es/doap-changeset#> .
 @prefix doap-deps: <http://ontologi.es/doap-deps#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
@@ -57,19 +58,21 @@
 		rdfs:comment "Improved line number accounting.";
 	];
 	doap-deps:runtime-requirement [
-		doap-deps:on "Lexical::Accessor 0.003"^^doap-deps:CpanId;
-	], [
 		doap-deps:on "Module::Runtime 0.013"^^doap-deps:CpanId;
 	], [ doap-deps:on "Moo 1.003000"^^doap-deps:CpanId ], [ doap-deps:on "MooX::late 0.014"^^doap-deps:CpanId ], [
 		doap-deps:on "MooseX::MungeHas 0.002"^^doap-deps:CpanId;
+	], [
+		doap-deps:on "Parse::Keyword 0.006"^^doap-deps:CpanId;
 	], [ doap-deps:on "Scalar::Util 1.24"^^doap-deps:CpanId ], [ doap-deps:on "Sub::Name"^^doap-deps:CpanId ], [ doap-deps:on "Type::Utils 0.024"^^doap-deps:CpanId ], [ doap-deps:on "Try::Tiny 0.12"^^doap-deps:CpanId ], [
 		doap-deps:on "namespace::sweep 0.006"^^doap-deps:CpanId;
-	], [ doap-deps:on "true 0.18"^^doap-deps:CpanId ], [ doap-deps:on "perl 5.014"^^doap-deps:CpanId ], [ doap-deps:on "Devel::Pragma 0.54"^^doap-deps:CpanId ], [
+	], [ doap-deps:on "true 0.18"^^doap-deps:CpanId ], [ doap-deps:on "perl 5.014"^^doap-deps:CpanId ], [
 		doap-deps:on "Exporter::Tiny 0.026"^^doap-deps:CpanId;
 	], [
 		doap-deps:on "Import::Into 1.000000"^^doap-deps:CpanId;
 	], [ doap-deps:on "Kavorka 0.027"^^doap-deps:CpanId ], [
 		doap-deps:on "Keyword::Simple 0.01"^^doap-deps:CpanId;
+	], [
+		doap-deps:on "Lexical::Accessor 0.003"^^doap-deps:CpanId;
 	];
 	doap-deps:test-recommendation [ doap-deps:on "Test::Warnings"^^doap-deps:CpanId ];
 	doap-deps:test-requirement [ doap-deps:on "Test::More 0.96"^^doap-deps:CpanId ], [ doap-deps:on "Test::Requires"^^doap-deps:CpanId ], [ doap-deps:on "Test::Fatal"^^doap-deps:CpanId ];
@@ -85,7 +88,7 @@
 	doap:maintainer      <http://purl.org/NET/cpan-uri/person/tobyink>;
 	doap:name            "Moops";
 	doap:programming-language "Perl";
-	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-020>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-021>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-022>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-023>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-024>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-025>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-026>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-027>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-028>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-029>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-030>;
+	doap:release         <http://purl.org/NET/cpan-uri/dist/Moops/v_0-001>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-002>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-003>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-004>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-005>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-006>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-007>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-008>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-009>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-010>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-011>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-012>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-013>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-014>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-015>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-016>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-017>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-018>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-019>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-020>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-021>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-022>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-023>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-024>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-025>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-026>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-027>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-028>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-029>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-030>, <http://purl.org/NET/cpan-uri/dist/Moops/v_0-031>;
 	doap:repository      [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-moops>;
@@ -674,6 +677,39 @@
 	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.030.tar.gz>;
 	doap:revision        "0.030"^^xsd:string.
 
+<http://purl.org/NET/cpan-uri/dist/Moops/v_0-031>
+	a                    doap:Version;
+	dc:identifier        "Moops-0.031"^^xsd:string;
+	dc:issued            "2014-03-23"^^xsd:date;
+	doap-changeset:changeset [
+		doap-changeset:item [
+			a doap-changeset:Addition;
+			rdfs:label "The new import parameter `-strict` enables loading strictures.pm within Moops scopes.";
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Avoid returning 0 from `assert` statements (PerlX::Assert).";
+		], [
+			a doap-changeset:Documentation;
+			rdfs:label "Use the `true` constant instead of the number 1 in the cli-app.pl example.";
+		], [
+			a doap-changeset:Change;
+			rdfs:label "Use Parse::Keyword instead of Devel::Pragma in order to establish the currently compiling package name. Devel::Pragma has issues under ithreads.";
+			doap-changeset:thanks <http://purl.org/NET/cpan-uri/person/pdcawley>;
+		], [
+			a doap-changeset:Tests;
+			rdfs:label "Test Moops in threaded Perls.";
+			doap-changeset:blame <http://purl.org/NET/cpan-uri/person/teejay>;
+		], [
+			a doap-changeset:Documentation;
+			rdfs:label "Fix typo in manual.";
+			doap-changeset:fixes <http://purl.org/NET/cpan-uri/rt/ticket/93553>;
+			doap-changeset:thanks <http://purl.org/NET/cpan-uri/person/rsavage>;
+		];
+	];
+	doap-changeset:released-by <http://purl.org/NET/cpan-uri/person/tobyink>;
+	doap:file-release    <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Moops-0.031.tar.gz>;
+	doap:revision        "0.031"^^xsd:string.
+
 <http://purl.org/NET/cpan-uri/person/mmaurice>
 	a                    foaf:Person;
 	foaf:mbox            <mailto:mmaurice@cpan.org>;
@@ -681,10 +717,33 @@
 	foaf:nick            "MMAURICE";
 	foaf:page            <https://metacpan.org/author/MMAURICE>.
 
+<http://purl.org/NET/cpan-uri/person/pdcawley>
+	a                    foaf:Person;
+	foaf:name            "Piers Cawley";
+	foaf:nick            "PDCAWLEY";
+	foaf:page            <https://metacpan.org/author/PDCAWLEY>.
+
+<http://purl.org/NET/cpan-uri/person/rsavage>
+	a                    foaf:Person;
+	foaf:name            "Ron Savage";
+	foaf:nick            "RSAVAGE";
+	foaf:page            <https://metacpan.org/author/RSAVAGE>.
+
+<http://purl.org/NET/cpan-uri/person/teejay>
+	a                    foaf:Person;
+	foaf:name            "Aaron James Trevena";
+	foaf:nick            "TEEJAY";
+	foaf:page            <https://metacpan.org/author/TEEJAY>.
+
 <http://purl.org/NET/cpan-uri/person/tobyink>
 	a                    foaf:Person;
 	foaf:mbox            <mailto:tobyink@cpan.org>;
 	foaf:name            "Toby Inkster";
 	foaf:nick            "TOBYINK";
 	foaf:page            <https://metacpan.org/author/TOBYINK>.
+
+<http://purl.org/NET/cpan-uri/rt/ticket/93553>
+	a                    doap-bugs:Issue;
+	doap-bugs:id         "93553"^^xsd:string;
+	doap-bugs:page       <https://rt.cpan.org/Ticket/Display.html?id=93553>.
 
