@@ -189,6 +189,27 @@ DESCRIPTION
     Roles take similar Attribute::Handlers-style attributes to classes, but
     don't support `:mutable`.
 
+   A note on consuming roles
+    In a standard:
+
+       class MyClass with MyRole {
+          ...;
+       }
+
+    You should note that role composition is delayed to happen at the *end* of
+    the class declaration. This is usually what you want.
+
+    However the interaction between method modifiers and roles is complex, and
+    *sometimes* you'll want the role to be applied to the class part-way
+    through the declaration. In this case you can use a `with` statement
+    *inside* the class declaration:
+
+       class MyClass {
+          ...;
+          with "MyRole";
+          ...;
+       }
+
   Namespaces
     The `namespace` keyword works as above, but declares a package without any
     class-specific or role-specific semantics.

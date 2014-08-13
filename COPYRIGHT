@@ -1,12 +1,11 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Moops
-Upstream-Contact: Toby Inkster (TOBYINK) <tobyink@cpan.org>
+Upstream-Contact:  and Toby Inkster (TOBYINK) <tobyink@cpan.org>
 Source: https://metacpan.org/release/Moops
 
 Files: README
  lib/Moops.pm
  lib/MooseX/FunctionParametersInfo.pm
- lib/PerlX/Assert.pm
  lib/PerlX/Define.pm
  t/01basic.t
  t/02outer.t
@@ -38,7 +37,6 @@ Files: README
  t/41constants.t
  t/51moresugar.t
  t/52customsugar.t
- t/61assertions.t
  t/71library-moosextypes.t
  t/71library.t
  t/91traits.t

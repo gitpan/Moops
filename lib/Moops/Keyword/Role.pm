@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Role;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.031';
+our $VERSION   = '0.032';
 
 use Moo;
 use B qw(perlstring);
@@ -63,8 +63,10 @@ sub generate_package_setup_relationships
 	my $self  = shift;
 	my @roles = @{ $self->relations->{with} || [] };
 	
-	return unless @roles;
-	return sprintf "with(%s);", join ",", map perlstring($_), @roles;
+	$self->_mk_guard(
+		sprintf("with(%s);", join(",", map perlstring($_), @roles))
+	) if @roles;
+	return;
 }
 
 around known_relationships => sub

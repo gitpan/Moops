@@ -6,23 +6,10 @@ no warnings qw(void once uninitialized numeric);
 package Moops::TraitFor::Keyword::mutable;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.031';
+our $VERSION   = '0.032';
 
 use Moo::Role;
 
-around generate_package_setup => sub {
-	my $next = shift;
-	my $self = shift;
-	
-	my @lines= $self->$next(@_);
-	
-	unless ("@lines" =~ /\b(use Moose)\b/)
-	{
-		require Carp;
-		Carp::carp(sprintf('%s has trait :mutable but does not appear to be a Moose class', $self->package));
-	}
-	
-	grep !/"Moops::Keyword::Class::__GUARD__"/, @lines;
-};
+around should_make_immutable => sub { 0 };
 
 1;

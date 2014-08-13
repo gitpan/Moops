@@ -38,7 +38,6 @@ lib/Moops/TraitFor/Keyword/ro.pm
 lib/Moops/TraitFor/Keyword/rw.pm
 lib/Moops/TraitFor/Keyword/rwp.pm
 lib/MooseX/FunctionParametersInfo.pm
-lib/PerlX/Assert.pm
 lib/PerlX/Define.pm
 t/01basic.t
 t/02outer.t
@@ -71,7 +70,6 @@ t/41constants.t
 t/51moresugar.t
 t/52customsugar.t
 t/53warnings.t
-t/61assertions.t
 t/71library-moosextypes.t
 t/71library.t
 t/91traits.t
