@@ -112,9 +112,10 @@
             "Parse::Keyword" : "0.006",
             "PerlX::Assert" : "0.902",
             "Scalar::Util" : "1.24",
+            "Scope::Guard" : "0",
             "Sub::Name" : "0",
             "Try::Tiny" : "0.12",
-            "Type::Utils" : "0.024",
+            "Type::Utils" : "1.000000",
             "namespace::sweep" : "0.006",
             "perl" : "5.014",
             "true" : "0.18"
@@ -137,79 +138,79 @@
    "provides" : {
       "Moops" : {
          "file" : "lib/Moops.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::ImportSet" : {
          "file" : "lib/Moops/ImportSet.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::Keyword" : {
          "file" : "lib/Moops/Keyword.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::Keyword::Class" : {
          "file" : "lib/Moops/Keyword/Class.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::Keyword::Library" : {
          "file" : "lib/Moops/Keyword/Library.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::Keyword::Role" : {
          "file" : "lib/Moops/Keyword/Role.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::MethodModifiers" : {
          "file" : "lib/Moops/MethodModifiers.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::Parser" : {
          "file" : "lib/Moops/Parser.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::TraitFor::Keyword::assertions" : {
          "file" : "lib/Moops/TraitFor/Keyword/assertions.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::TraitFor::Keyword::dirty" : {
          "file" : "lib/Moops/TraitFor/Keyword/dirty.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::TraitFor::Keyword::fp" : {
          "file" : "lib/Moops/TraitFor/Keyword/fp.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::TraitFor::Keyword::mutable" : {
          "file" : "lib/Moops/TraitFor/Keyword/mutable.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::TraitFor::Keyword::ro" : {
          "file" : "lib/Moops/TraitFor/Keyword/ro.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::TraitFor::Keyword::rw" : {
          "file" : "lib/Moops/TraitFor/Keyword/rw.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "Moops::TraitFor::Keyword::rwp" : {
          "file" : "lib/Moops/TraitFor/Keyword/rwp.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "MooseX::FunctionParametersInfo" : {
          "file" : "lib/MooseX/FunctionParametersInfo.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "MooseX::FunctionParametersInfo::Trait::Method" : {
          "file" : "lib/MooseX/FunctionParametersInfo.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "MooseX::FunctionParametersInfo::Trait::WrappedMethod" : {
          "file" : "lib/MooseX/FunctionParametersInfo.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       },
       "PerlX::Define" : {
          "file" : "lib/PerlX/Define.pm",
-         "version" : "0.032"
+         "version" : "0.033"
       }
    },
    "release_status" : "stable",
@@ -228,7 +229,7 @@
          "web" : "https://github.com/tobyink/p5-moops"
       }
    },
-   "version" : "0.032",
+   "version" : "0.033",
    "x_contributors" : [
       "Maurice Mengel (MMAURICE) <mmaurice@cpan.org>",
       "Aaron James Trevena (TEEJAY) <teejay@cpan.org>"
