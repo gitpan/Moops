@@ -6,14 +6,14 @@ no warnings qw(void once uninitialized numeric);
 package Moops::TraitFor::Keyword::dirty;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.033';
+our $VERSION   = '0.034';
 
 use Moo::Role;
 
 around generate_package_setup => sub {
 	my $next = shift;
 	my $self = shift;
-	grep !/^use namespace::sweep/, $self->$next(@_);
+	grep !/^use namespace::autoclean/, $self->$next(@_);
 };
 
 1;

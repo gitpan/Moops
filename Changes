@@ -6,6 +6,35 @@ Home page:    <https://metacpan.org/release/Moops>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Moops>
 Maintainer:   Toby Inkster (TOBYINK) <tobyink@cpan.org>
 
+0.034	2014-10-12
+
+ [ Bug Fixes ]
+ - Fix enormous memory leak leading to segfault caused when a role
+   application in a scope guard threw an exception.
+   Fixes RT#99389.
+   Fixes RT#99409.
+   Ben Goldberg++
+   Lukas Atkinson++
+   Søren Døssing++
+   <https://rt.cpan.org/Ticket/Display.html?id=99389>
+   <https://rt.cpan.org/Ticket/Display.html?id=99409>
+   <http://purl.org/NET/cpan-uri/rt/ticket/99438>
+
+ [ Documentation ]
+ - Bundle a multimethod example (stolen from MooseX:MultiMethods).
+ - Improvements to the SUPPORT and SEE ALSO sections of the documentation.
+ - Warn about some planned changes.
+
+ [ Test Suite ]
+ - Test that `use true` is imported by Moops.
+
+ [ Packaging ]
+ - Remove outdated dependency on Sub::Name from packaging metadata.
+
+ [ Other ]
+ - Updated: namespace::autoclean now supports Moo enough that we can start
+   using it instead of namespace::sweep.
+
 0.033	2014-08-16
 
  [ Bug Fixes ]

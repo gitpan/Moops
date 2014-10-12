@@ -6,7 +6,7 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Class;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.033';
+our $VERSION   = '0.034';
 
 use Moo;
 use B 'perlstring';
@@ -28,7 +28,7 @@ sub generate_package_setup_oo
 		or Carp::croak("Cannot create a package using $using; stopped");
 	
 	my @lines = (
-		'use namespace::sweep -also => "has";',
+		'use namespace::autoclean -also => "has";',
 		'use Lexical::Accessor;',
 	);
 	push @lines, "use MooseX::MungeHas qw(@{[ $self->arguments_for_moosex_mungehas ]});"

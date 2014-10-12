@@ -6,12 +6,12 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Parser;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.033';
+our $VERSION   = '0.034';
 
 use Moo;
 use Keyword::Simple ();
 use Module::Runtime qw($module_name_rx);
-use namespace::sweep;
+use namespace::autoclean;
 
 # I'm just going to assume that 0.01 is the only version that is ever going
 # to have that problem...

@@ -31,6 +31,17 @@ STATUS
 
     Until version 1.000, stuff might change, but not without good reason.
 
+  Planned Changes
+    *   Support for using Function::Parameters to handle method signatures is
+        likely to be dropped.
+
+    *   Parameterized class and parameterized role support is planned.
+
+    *   The internals for parsing `class`, `role`, `namespace`, and `library`
+        may change to use Parse::Keyword rather than Keyword::Simple. This
+        will likely break any extensions that rely on subclassing or adding
+        traits to the Moops::Parser or Moops::Keyword classes.
+
 DESCRIPTION
     Moops is sugar for declaring and using roles and classes in Perl.
 
@@ -138,7 +149,7 @@ DESCRIPTION
 
     If using Moose or Mouse, classes are automatically made immutable.
 
-    namespace::sweep is automatically used in all classes.
+    namespace::autoclean is automatically used in all classes.
 
     Between the class declaration and its body, Attribute::Handlers-style
     attributes may be provided:
@@ -153,7 +164,7 @@ DESCRIPTION
 
     *   `:assertions` - enables assertion checking (see below)
 
-    *   `:dirty` - suppresses namespace::sweep
+    *   `:dirty` - suppresses namespace::autoclean
 
     *   `:fp` - use Function::Parameters instead of Kavorka
 
@@ -184,7 +195,7 @@ DESCRIPTION
 
     If roles use Moo, the MooX::late extension is enabled.
 
-    namespace::sweep is automatically used in all roles.
+    namespace::autoclean is automatically used in all roles.
 
     Roles take similar Attribute::Handlers-style attributes to classes, but
     don't support `:mutable`.
@@ -218,7 +229,7 @@ DESCRIPTION
           # ...
        }
 
-    namespace::sweep is not automatically used in namespaces.
+    namespace::autoclean is not automatically used in namespaces.
 
     Attribute::Handlers-style attributes are supported for namespaces, but
     most of the built-in attributes make any sense without class/role
@@ -391,9 +402,10 @@ DESCRIPTION
 
   Constants
     The useful constants `true` and `false` are imported into all declared
-    packages. (Within classes and roles, namespace::sweep will later remove
-    them from the symbol table, so they don't form part of your package's
-    API.) These constants can help make attribute declarations more readable.
+    packages. (Within classes and roles, namespace::autoclean will later
+    remove them from the symbol table, so they don't form part of your
+    package's API.) These constants can help make attribute declarations more
+    readable.
 
        has name => (is => 'ro', isa => Str, required => true);
 
@@ -404,8 +416,8 @@ DESCRIPTION
           define PI = 3.2;
        }
 
-    Constants declared this way will *not* be swept away by namespace::sweep,
-    and are considered part of your package's API.
+    Constants declared this way will *not* be swept away by
+    namespace::autoclean, and are considered part of your package's API.
 
   Assertions
     Declared packages can contain assertions (see PerlX::Assert). These are
@@ -558,17 +570,25 @@ SUPPORT
     IRC: support is available through in the *#moops* channel on irc.perl.org
     <http://www.irc.perl.org/channels.html>.
 
-    For anything Moo-specific, you may have better luck in the *#web-simple*
-    channel; or for Moose-specific queries, *#moose*.
+    For general Moose/Moo queries which don't seem to be related to Moops'
+    syntactic sugar, your question may be answered more quickly in the
+    *#moose* channel.
+
+    Web: if you ask a question on PerlMonks in Seekers of Perl Wisdom
+    <http://www.perlmonks.org/?node_id=479> with "Moops" in the subject line,
+    it should be answered pretty quickly.
+
+    There is a moops tag <http://stackoverflow.com/questions/tagged/moops> on
+    StackOverflow.
 
 SEE ALSO
     Similar: MooseX::Declare, <https://github.com/stevan/p5-mop-redux>.
 
     Main functionality exposed by this module: Moo/MooX::late, Kavorka,
-    Try::Tiny, Types::Standard, namespace::sweep, true.
+    Try::Tiny, Types::Standard, namespace::autoclean, true, PerlX::Assert.
 
     Internals fueled by: Keyword::Simple, Module::Runtime, Import::Into,
-    Devel::Pragma, Attribute::Handlers.
+    Attribute::Handlers.
 
     <http://en.wikipedia.org/wiki/The_Bubble_Boy_(Seinfeld)>.
 

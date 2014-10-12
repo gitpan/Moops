@@ -6,13 +6,13 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.033';
+our $VERSION   = '0.034';
 
 use Moo;
 use B qw(perlstring);
 use Devel::GlobalDestruction;
 use Module::Runtime qw(module_notional_filename use_package_optimistically);
-use namespace::sweep;
+use namespace::autoclean;
 
 has 'keyword'        => (is => 'ro');
 has 'ccstash'        => (is => 'ro');
@@ -61,9 +61,8 @@ sub generate_code
 	state $i = 0;
 	if (@guarded)
 	{
-		require Scope::Guard;
 		$inject .= sprintf(
-			'my $__GUARD__%d_%d = Scope::Guard->new(sub { %s });',
+			'my $__GUARD__%d_%d = "Moops::Keyword"->scope_guard(sub { %s });',
 			++$i,
 			100_000 + int(rand 899_000),
 			join(q[;], @guarded),
@@ -163,6 +162,17 @@ sub _mk_guard
 {
 	my $self = shift;
 	push @{$self->_guarded}, @_;
+}
+
+use Variable::Magic qw(wizard cast);
+sub scope_guard {
+	shift;
+	state $wiz = wizard(
+		data => sub { $_[1] },
+		free => sub { $_[1]() },
+	);
+	cast my($magic), $wiz, $_[0];
+	\$magic;
 }
 
 1;

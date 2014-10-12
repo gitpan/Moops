@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Moops
-Upstream-Contact:  and Toby Inkster (TOBYINK) <tobyink@cpan.org>
+Upstream-Contact: Toby Inkster (TOBYINK) <tobyink@cpan.org>
 Source: https://metacpan.org/release/Moops
 
 Files: README
@@ -68,18 +68,26 @@ Files: Changes
 Copyright: Copyright 2014 Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
-Files: CONTRIBUTING
- INSTALL
+Files: INSTALL
  LICENSE
  examples/calculator.pl
  examples/class-versus-object-method.pl
  examples/cli-app.pl
  examples/lib/MoopsX/Keyword/Exception.pm
  examples/lib/MoopsX/TraitFor/Parser/ExceptionKeyword.pm
+ examples/multimethods.pl
  examples/using-moops-with-method-signatures.pl
  examples/using-moosextypes-in-moo.pl
 Copyright: Unknown
 License: Unknown
+
+Files: t/04composition.t
+ t/05true.t
+ t/53warnings.t
+ t/ReturnsTrue.pm
+ t/ReturnsTrueAgain.pm
+Copyright: This software is copyright (c) 2014 by Toby Inkster.
+License: GPL-1.0+ or Artistic-1.0
 
 Files: COPYRIGHT
  CREDITS
@@ -90,11 +98,6 @@ License: public-domain
 Files: examples/bench.pl
  examples/extending-moops.pl
 Copyright: This software is copyright (c) 2013 by Toby Inkster.
-License: GPL-1.0+ or Artistic-1.0
-
-Files: t/04composition.t
- t/53warnings.t
-Copyright: This software is copyright (c) 2014 by Toby Inkster.
 License: GPL-1.0+ or Artistic-1.0
 
 Files: Makefile.PL

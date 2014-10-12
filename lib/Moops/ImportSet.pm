@@ -6,11 +6,11 @@ no warnings qw(void once uninitialized numeric);
 package Moops::ImportSet;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.033';
+our $VERSION   = '0.034';
 
 use Moo;
 use Module::Runtime qw(use_package_optimistically);
-use namespace::sweep;
+use namespace::autoclean;
 
 has imports => (is => 'ro');
 has ident   => (is => 'ro', init_arg => undef, default => sub { state $x = 0; ++$x });

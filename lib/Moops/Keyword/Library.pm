@@ -6,11 +6,11 @@ no warnings qw(void once uninitialized numeric);
 package Moops::Keyword::Library;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.033';
+our $VERSION   = '0.034';
 
 use Moo;
 extends 'Moops::Keyword';
-use namespace::sweep;
+use namespace::autoclean;
 
 around generate_package_setup => sub
 {
